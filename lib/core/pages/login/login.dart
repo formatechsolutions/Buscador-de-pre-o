@@ -9,9 +9,22 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       body: Obx(() => Container(
             color: colorController.backgroundColor.value,
+            child: SizedBox(
+              height: screenHeight * 0.3,
+              width: double.infinity,
+              child: const Image(
+                image: AssetImage('assets/images/rectangle.png'),
+                fit: BoxFit.cover,
+                repeat: ImageRepeat.noRepeat,
+                filterQuality: FilterQuality.high,
+                alignment: Alignment.topCenter,
+              ),
+            ),
           )),
     );
   }
