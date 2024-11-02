@@ -1,5 +1,3 @@
-// ignore_for_file: use_key_in_widget_constructors
-
 import 'package:busca_preco/core/pages/custom/custom_text_transparent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:busca_preco/core/src/colors/colors.dart';
@@ -20,31 +18,37 @@ class LoginPage extends StatelessWidget {
           color: colorController.backgroundColor.value,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                height: screenHeight * 0.4,
-                child: const Image(
-                  image: AssetImage('assets/images/rectangle.png'),
-                  repeat: ImageRepeat.noRepeat,
-                  filterQuality: FilterQuality.high,
-                  alignment: Alignment.topCenter,
-                ),
-              ),
-              Image(
-                image: const AssetImage('assets/icons/icon.png'),
-                height: screenHeight * 0.15,
+              const Image(
+                image: AssetImage('assets/images/rectangle.png'),
+                repeat: ImageRepeat.noRepeat,
                 filterQuality: FilterQuality.high,
-                alignment: Alignment.center,
+                alignment: Alignment.topCenter,
               ),
-              Text(
-                "BuscaPreço",
-                style: TextStyle(
-                  fontSize: screenWidth * 0.06,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
+              Column(
+                children: [
+                  Image(
+                    image: const AssetImage('assets/icons/icon.png'),
+                    height: screenHeight * 0.15,
+                    filterQuality: FilterQuality.high,
+                    alignment: Alignment.center,
+                  ),
+                  Transform.translate(
+                    offset: const Offset(0, -10),
+                    child: Text(
+                      "BuscaPreço",
+                      style: TextStyle(
+                        fontSize: screenWidth * 0.09,
+                        fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w900,
+                        color: ColorsConfig.primary,
+                      ),
+                    ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 50.0),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -67,8 +71,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ],
               ),
-              const SizedBox(height: 50.0),
-              Expanded(child: Container()),
+              const SizedBox(height: 140.0),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -83,7 +86,10 @@ class LoginPage extends StatelessWidget {
                         final version =
                             snapshot.data?.version ?? 'Desconhecida';
                         final buildNumber = snapshot.data?.buildNumber ?? '';
-                        return CustomTextTransparent(text: 'Versão: $version+$buildNumber', color: ColorsConfig.transparentGrey);
+                        return CustomTextTransparent(
+                          text: 'Versão: $version+$buildNumber',
+                          color: ColorsConfig.transparentGrey,
+                        );
                       }
                     },
                   ),
