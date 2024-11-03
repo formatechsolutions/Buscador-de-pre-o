@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       title: 'BuscaPreco',
       debugShowCheckedModeBanner: false,
-      initialRoute: Routes.login,
+      initialRoute: Routes.home,
       defaultTransition: Transition.fadeIn,
       getPages: Routes.routes,
     );

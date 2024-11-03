@@ -1,5 +1,5 @@
-import 'package:busca_preco/core/pages/home/HomePage.dart';
 import 'package:busca_preco/core/pages/login/LoginPage.dart';
+import 'package:busca_preco/core/pages/home/HomePage.dart';
 import 'package:busca_preco/core/pages/register/RegisterPage.dart';
 import 'package:get/get.dart';
 
