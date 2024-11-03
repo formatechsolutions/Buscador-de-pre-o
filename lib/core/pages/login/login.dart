@@ -107,9 +107,9 @@ class LoginPage extends StatelessWidget {
                     future: PackageInfo.fromPlatform(),
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Text('Carregando versão...');
+                        return const Text('');
                       } else if (snapshot.hasError) {
-                        return const Text('Erro ao carregar versão');
+                        return const Text('');
                       } else {
                         final version =
                             snapshot.data?.version ?? 'Desconhecida';
