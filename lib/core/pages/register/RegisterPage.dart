@@ -14,20 +14,7 @@ class RegisterPage extends StatelessWidget {
       appBar: SimpleAppBar(),
       body: Obx(() => Container(
         color: colorController.backgroundColor.value,
-        child: const Column(
-          children: [
-            Center(
-              child: Text(
-                "Para ter acesso ao BuscaPreço você",
-                style: TextStyle(
-                  color: ColorsConfig.textBlack,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: const Column(),
       )),
     );
   }
