@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'package:busca_preco/core/pages/custom/custom_text_transparent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:busca_preco/core/src/colors/colors.dart';
@@ -49,29 +51,55 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  OutlinedButton(
-                    onPressed: () {
-                      debugPrint('Received click');
-                    },
-                    child: const Text('Registrar'),
+                  SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        debugPrint('Received click');
+                      },
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.all(25.0),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                        side: const BorderSide(
+                          color: ColorsConfig.primary,
+                          width: 2.0,
+                        ),
+                      ),
+                      child: const Text(
+                        'REGISTRAR',
+                        style: TextStyle(
+                            color: ColorsConfig.primary,
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   ),
-                  const VerticalDivider(
-                    color: Colors.black,
-                    thickness: 1,
-                    width: 20,
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      Get.toNamed('/home');
-                    },
-                    child: const Text('Login'),
-                  ),
+                  const SizedBox(height: 20.0),
+                  SizedBox(
+                    width: 300,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        padding: const EdgeInsets.all(25.0),
+                        backgroundColor: ColorsConfig.primary,
+                        enabledMouseCursor: MouseCursor.defer,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                        ),
+                      ),
+                      onPressed: () {
+                        Get.toNamed('/home');
+                      },
+                      child: const Text('LOGIN',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                  )
                 ],
               ),
-              const SizedBox(height: 140.0),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
