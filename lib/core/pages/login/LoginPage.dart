@@ -1,8 +1,9 @@
 // ignore_for_file: use_key_in_widget_constructors
 
+import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_text_transparent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
-import 'package:busca_preco/core/src/colors/colors.dart';
+import 'package:busca_preco/core/pages/custom/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -51,51 +52,17 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Column(
+              const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(
                     width: 300,
-                    child: OutlinedButton(
-                      onPressed: () {
-                        Get.toNamed('/register');
-                      },
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.all(25.0),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                        side: const BorderSide(
-                          color: ColorsConfig.primary,
-                          width: 2.0,
-                        ),
-                      ),
-                      child: const Text(
-                        'REGISTRAR',
-                        style: TextStyle(
-                            color: ColorsConfig.primary,
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                    child: CustomButtonMain(text: 'REGISTRAR', toPage: '/register', colorButton: ColorsConfig.primary, colorBackground: false)
                   ),
-                  const SizedBox(height: 20.0),
+                  SizedBox(height: 20.0),
                   SizedBox(
                     width: 300,
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        padding: const EdgeInsets.all(25.0),
-                        backgroundColor: ColorsConfig.primary,
-                        enabledMouseCursor: MouseCursor.defer,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15.0),
-                        ),
-                      ),
-                      onPressed: () {
-                        Get.toNamed('/home');
-                      },
-                      child: const Text('LOGIN',
-                          style: TextStyle(color: Colors.white)),
-                    ),
+                    child: CustomButtonMain(text: 'LOGIN', toPage: '/login', colorButton: ColorsConfig.primary, colorBackground: true)
                   )
                 ],
               ),
