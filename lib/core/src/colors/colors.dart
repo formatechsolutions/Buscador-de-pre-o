@@ -14,4 +14,6 @@ class ColorsConfig {
   static const Color backgroundBlack = Color.fromARGB(255, 0, 0, 0);
   static const Color primary = Color(0xFF353668);
   static const Color transparentGrey = Color.fromARGB(255, 159, 159, 160);
+  static const Color textWhite = Color(0xFFFFFFFF);
+  static const Color textBlack = Color(0xFF000000);
 }

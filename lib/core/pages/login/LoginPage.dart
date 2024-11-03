@@ -1,6 +1,6 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:busca_preco/core/pages/custom/custom_text_transparent.dart';
+import 'package:busca_preco/core/pages/custom/text/custom_text_transparent.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:busca_preco/core/src/colors/colors.dart';
 import 'package:flutter/material.dart';
@@ -58,7 +58,7 @@ class LoginPage extends StatelessWidget {
                     width: 300,
                     child: OutlinedButton(
                       onPressed: () {
-                        debugPrint('Received click');
+                        Get.toNamed('/register');
                       },
                       style: OutlinedButton.styleFrom(
                         padding: const EdgeInsets.all(25.0),
