@@ -1,9 +1,8 @@
 // ignore_for_file: use_key_in_widget_constructors
 
 import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
-import 'package:busca_preco/core/pages/custom/text/custom_text_transparent.dart';
-import 'package:package_info_plus/package_info_plus.dart';
 import 'package:busca_preco/core/pages/custom/colors.dart';
+import 'package:busca_preco/core/pages/custom/text/version_app.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -67,29 +66,7 @@ class LoginPage extends StatelessWidget {
                 ],
               ),
               const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  FutureBuilder<PackageInfo>(
-                    future: PackageInfo.fromPlatform(),
-                    builder: (context, snapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return const Text('');
-                      } else if (snapshot.hasError) {
-                        return const Text('');
-                      } else {
-                        final version =
-                            snapshot.data?.version ?? 'Desconhecida';
-                        final buildNumber = snapshot.data?.buildNumber ?? '';
-                        return CustomTextTransparent(
-                          text: 'Versão: $version+$buildNumber',
-                          color: ColorsConfig.transparentGrey,
-                        );
-                      }
-                    },
-                  ),
-                ],
-              ),
+              const VersionApp(),
               const SizedBox(height: 20),
             ],
           ),
