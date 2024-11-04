@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
+            children: <Widget>[
               const Image(
                 image: AssetImage('assets/images/rectangle.png'),
                 repeat: ImageRepeat.noRepeat,
@@ -29,7 +29,7 @@ class HomePage extends StatelessWidget {
                 alignment: Alignment.topCenter,
               ),
               Column(
-                children: [
+                children: <Widget>[
                   Image(
                     image: const AssetImage('assets/icons/icon.png'),
                     height: screenHeight * 0.15,
@@ -53,7 +53,7 @@ class HomePage extends StatelessWidget {
               const Spacer(),
               const Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                children: [
+                children: <Widget>[
                   SizedBox(
                     width: 300,
                     child: CustomButtonMain(text: 'REGISTRAR', toPage: '/register', colorButton: ColorsConfig.primary, colorBackground: false)
