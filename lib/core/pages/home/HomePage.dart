@@ -28,42 +28,33 @@ class HomePage extends StatelessWidget {
                 filterQuality: FilterQuality.high,
                 alignment: Alignment.topCenter,
               ),
-              Column(
-                children: <Widget>[
-                  Image(
-                    image: const AssetImage('assets/icons/icon.png'),
-                    height: screenHeight * 0.15,
-                    filterQuality: FilterQuality.high,
-                    alignment: Alignment.center,
+              Image(
+                image: const AssetImage('assets/icons/icon.png'),
+                height: screenHeight * 0.15,
+                filterQuality: FilterQuality.high,
+                alignment: Alignment.center,
+              ),
+              Transform.translate(
+                offset: const Offset(0, -10),
+                child: Text(
+                  "BuscaPreço",
+                  style: TextStyle(
+                    fontSize: screenWidth * 0.09,
+                    fontFamily: 'Roboto',
+                    fontWeight: FontWeight.w900,
+                    color: ColorsConfig.primary,
                   ),
-                  Transform.translate(
-                    offset: const Offset(0, -10),
-                    child: Text(
-                      "BuscaPreço",
-                      style: TextStyle(
-                        fontSize: screenWidth * 0.09,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w900,
-                        color: ColorsConfig.primary,
-                      ),
-                    ),
-                  ),
-                ],
+                ),
               ),
               const Spacer(),
-              const Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  SizedBox(
-                    width: 300,
-                    child: CustomButtonMain(text: 'REGISTRAR', toPage: '/register', colorButton: ColorsConfig.primary, colorBackground: false)
-                  ),
-                  SizedBox(height: 20.0),
-                  SizedBox(
-                    width: 300,
-                    child: CustomButtonMain(text: 'LOGIN', toPage: '/login', colorButton: ColorsConfig.primary, colorBackground: true)
-                  )
-                ],
+              const SizedBox(
+                width: 300,
+                child: CustomButtonMain(text: 'REGISTRAR', toPage: '/register', colorButton: ColorsConfig.primary, colorBackground: false)
+              ),
+              const SizedBox(height: 20.0),
+              const SizedBox(
+                width: 300,
+                child: CustomButtonMain(text: 'LOGIN', toPage: '/login', colorButton: ColorsConfig.primary, colorBackground: true)
               ),
               const Spacer(),
               const VersionApp(),
