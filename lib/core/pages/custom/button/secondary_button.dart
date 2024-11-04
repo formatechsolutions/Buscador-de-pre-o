@@ -1,31 +1,28 @@
 import 'package:busca_preco/core/pages/custom/colors.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class CustomButtonMain extends StatelessWidget {
+class CustomSecondaryButton extends StatelessWidget {
   final String text;
-  final String toPage;
   final Color colorButton;
   final bool colorBackground;
+  final VoidCallback onPressed;
 
-  const CustomButtonMain({
+  const CustomSecondaryButton({
     super.key,
     required this.text,
-    required this.toPage,
-    required this.colorButton, 
+    required this.colorButton,
     required this.colorBackground,
+    required this.onPressed,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.6,
+      width: MediaQuery.of(context).size.width * 0.8,
       child: OutlinedButton(
-        onPressed: () {
-          Get.toNamed(toPage);
-        },
+        onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.all(25.0),
+          padding: const EdgeInsets.all(15.0),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),
           ),
@@ -39,6 +36,7 @@ class CustomButtonMain extends StatelessWidget {
           text,
           style: TextStyle(
             color: colorBackground ? ColorsConfig.textWhite : colorButton,
+            fontSize: 18.0,
             fontWeight: FontWeight.bold,
           ),
         ),
