@@ -67,7 +67,7 @@ class RegisterPage extends StatelessWidget {
                             labelText: 'Senha',
                             labelStyle: const TextStyle(
                                 color: Colors.black, fontSize: 15),
-                            prefixIcon: const Icon(Icons.person),
+                            prefixIcon: const Icon(Icons.lock),
                             prefixIconColor: Colors.grey,
                             filled: true,
                             fillColor: const Color.fromARGB(255, 233, 231, 231),

@@ -1,6 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names
 
 import 'package:busca_preco/core/pages/custom/appBar/simple_app_bar.dart';
+import 'package:busca_preco/core/pages/custom/button/secondary_button.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +18,72 @@ class LoginPage extends StatelessWidget {
         appBar: SimpleAppBar(),
         body: Obx(() => Container(
               color: ColorController().backgroundColor.value,
-            )),
-      )
-    );
+              child: Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Form(
+                key: _loginController.formKey,
+                child: Column(
+                  children: [
+                    TextField(
+                      controller: _loginController.emailController,
+                      decoration: const InputDecoration(
+                        labelText: 'Email',
+                        labelStyle:
+                            TextStyle(color: Colors.black, fontSize: 15),
+                        prefixIcon: Icon(Icons.person),
+                        prefixIconColor: Colors.grey,
+                        filled: true,
+                        fillColor: Color.fromARGB(255, 233, 231, 231),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Obx(() => TextField(
+                          controller: _loginController.senhaController,
+                          obscureText: !_loginController.showPassword.value,
+                          decoration: InputDecoration(
+                            labelText: 'Senha',
+                            labelStyle: const TextStyle(
+                                color: Colors.black, fontSize: 15),
+                            prefixIcon: const Icon(Icons.lock),
+                            prefixIconColor: Colors.grey,
+                            filled: true,
+                            fillColor: const Color.fromARGB(255, 233, 231, 231),
+                            border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(10)),
+                              borderSide: BorderSide.none,
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _loginController.showPassword.value
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                              onPressed: _loginController.showPasswordToggle,
+                            ),
+                          ),
+                        )),
+                    const Spacer(),
+                    CustomSecondaryButton(
+                      text: 'Login',
+                      colorButton: ColorsController.primary,
+                      colorBackground: true,
+                      onPressed: _loginController.login,
+                    ),
+                    const SizedBox(height: 20),
+                  ],
+                ),
+              ),
+            ),
+            ),
+          ),
+        ),
+      );
   }
 }
+
