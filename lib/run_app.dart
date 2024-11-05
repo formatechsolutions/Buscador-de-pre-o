@@ -1,9 +1,8 @@
 import 'package:busca_preco/core/routes/routes.dart';
 import 'package:busca_preco/core/services/services_manager.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
-
 import 'package:get/get.dart';
+import 'dart:async';
 
 class RunApp {
   static Future<void> run() async {
