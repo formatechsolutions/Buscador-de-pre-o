@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  final ColorController colorController = ColorController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +16,7 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       body: Obx(
         () => Container(
-          color: colorController.backgroundColor.value,
+          color: ColorController().backgroundColor.value,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,

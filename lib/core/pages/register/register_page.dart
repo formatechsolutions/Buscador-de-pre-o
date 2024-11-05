@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
-  final ColorController colorController = ColorController();
   final RegisterController _registerController = RegisterController();
 
   RegisterPage({Key? key}) : super(key: key);
@@ -18,7 +17,7 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       appBar: SimpleAppBar(),
       body: Obx(() => Container(
-          color: colorController.backgroundColor.value,
+          color: ColorController().backgroundColor.value,
           child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Form(

@@ -12,6 +12,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   get: ^4.6.6
   package_info_plus: ^4.0.0
+  flutter_secure_storage: ^9.2.2
 
 dev_dependencies:
   flutter_test:

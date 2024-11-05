@@ -5,15 +5,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final ColorController _colorController = ColorController();
-
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
     return Obx(() => AppBar(
-          backgroundColor: _colorController.backgroundColor.value,
+          backgroundColor: ColorController().backgroundColor.value,
           elevation: 0,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
