@@ -2,14 +2,14 @@
 
 import 'package:busca_preco/core/pages/custom/appBar/simple_app_bar.dart';
 import 'package:busca_preco/core/pages/custom/button/secondary_button.dart';
-import 'package:busca_preco/core/pages/custom/colors.dart';
-import 'package:busca_preco/core/pages/register/RegisterController.dart';
+import 'package:busca_preco/core/pages/custom/colors_controller.dart';
+import 'package:busca_preco/core/pages/register/register_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class RegisterPage extends StatelessWidget {
-  final ColorController colorController = Get.put(ColorController());
-  final Registercontroller _registerController = Registercontroller();
+  final ColorController colorController = ColorController();
+  final RegisterController _registerController = RegisterController();
 
   RegisterPage({Key? key}) : super(key: key);
 
@@ -89,7 +89,7 @@ class RegisterPage extends StatelessWidget {
                     const Spacer(),
                     CustomSecondaryButton(
                       text: 'Registrar',
-                      colorButton: ColorsConfig.primary,
+                      colorButton: ColorsController.primary,
                       colorBackground: true,
                       onPressed: _registerController.register,
                     ),

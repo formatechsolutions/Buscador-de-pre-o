@@ -1,4 +1,4 @@
-import 'package:busca_preco/core/pages/custom/colors.dart';
+import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:flutter/material.dart';
 
 class CustomSecondaryButton extends StatelessWidget {
@@ -35,7 +35,7 @@ class CustomSecondaryButton extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: colorBackground ? ColorsConfig.textWhite : colorButton,
+            color: colorBackground ? ColorsController.textWhite : colorButton,
             fontSize: 18.0,
             fontWeight: FontWeight.bold,
           ),

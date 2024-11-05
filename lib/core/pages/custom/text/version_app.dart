@@ -1,5 +1,5 @@
 import 'package:busca_preco/core/pages/custom/text/custom_text_transparent.dart';
-import 'package:busca_preco/core/pages/custom/colors.dart';
+import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class VersionApp extends StatelessWidget {
               final buildNumber = snapshot.data?.buildNumber ?? '';
               return CustomTextTransparent(
                 text: 'Versão: $version+$buildNumber',
-                color: ColorsConfig.transparentGrey,
+                color: ColorsController.transparentGrey,
               );
             }
           },

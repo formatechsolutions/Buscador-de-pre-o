@@ -1,11 +1,11 @@
 // ignore_for_file: use_key_in_widget_constructors
 
-import 'package:busca_preco/core/pages/custom/colors.dart';
+import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final ColorController _colorController = Get.put(ColorController());
+  final ColorController _colorController = ColorController();
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -17,7 +17,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
           elevation: 0,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            color: ColorsConfig.textBlack,
+            color: ColorsController.textBlack,
             onPressed: () => Navigator.of(Get.context!).pop(),
           ),
         ));

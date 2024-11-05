@@ -1,4 +1,4 @@
-import 'package:busca_preco/core/pages/custom/colors.dart';
+import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,7 +38,7 @@ class CustomButtonMain extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: colorBackground ? ColorsConfig.textWhite : colorButton,
+            color: colorBackground ? ColorsController.textWhite : colorButton,
             fontWeight: FontWeight.bold,
           ),
         ),
