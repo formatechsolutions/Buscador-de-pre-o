@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RegisterController {
+class RegisterController extends GetxController {
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   Rx<bool> showPassword = false.obs;
