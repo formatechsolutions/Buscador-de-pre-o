@@ -1,3 +1,4 @@
+import 'package:busca_preco/core/pages/custom/app_style_configuration.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +25,7 @@ class CustomSecondaryButton extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           padding: const EdgeInsets.all(15.0),
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
+            borderRadius: AppStyleConfiguration.borderRadiusButton,
           ),
           side: BorderSide(
             color: colorButton,

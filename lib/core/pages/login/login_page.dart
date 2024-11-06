@@ -16,74 +16,95 @@ class LoginPage extends StatelessWidget {
       init: _loginController,
       builder: (controller) => Scaffold(
         appBar: SimpleAppBar(),
-        body: Obx(() => Container(
-              color: ColorController().backgroundColor.value,
-              child: Padding(
-              padding: const EdgeInsets.all(16.0),
+        body: Obx(
+          () => Container(
+            color: ColorController().backgroundColor.value,
+            child: Padding(
+              padding: const EdgeInsets.all(25.0),
               child: Form(
                 key: _loginController.formKey,
                 child: Column(
                   children: [
-                    TextField(
-                      controller: _loginController.emailController,
-                      decoration: const InputDecoration(
-                        labelText: 'Email',
-                        labelStyle:
-                            TextStyle(color: Colors.black, fontSize: 15),
-                        prefixIcon: Icon(Icons.person),
-                        prefixIconColor: Colors.grey,
-                        filled: true,
-                        fillColor: Color.fromARGB(255, 233, 231, 231),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                          borderSide: BorderSide.none,
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                        child: TextField(
+                          controller: _loginController.emailController,
+                          decoration: InputDecoration(
+                            labelText: 'Email',
+                            labelStyle: const TextStyle(
+                                color: Colors.black, fontSize: 15),
+                            prefixIcon: const Icon(Icons.person),
+                            prefixIconColor: Colors.grey,
+                            filled: true,
+                            fillColor:
+                                ColorsController.primary.withOpacity(0.2),
+                            border: const OutlineInputBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(50)),
+                              borderSide: BorderSide.none,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                     const SizedBox(height: 20),
-                    Obx(() => TextField(
-                          controller: _loginController.senhaController,
-                          obscureText: !_loginController.showPassword.value,
-                          decoration: InputDecoration(
-                            labelText: 'Senha',
-                            labelStyle: const TextStyle(
-                                color: Colors.black, fontSize: 15),
-                            prefixIcon: const Icon(Icons.lock),
-                            prefixIconColor: Colors.grey,
-                            filled: true,
-                            fillColor: const Color.fromARGB(255, 233, 231, 231),
-                            border: const OutlineInputBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                              borderSide: BorderSide.none,
-                            ),
-                            suffixIcon: IconButton(
-                              icon: Icon(
-                                _loginController.showPassword.value
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.grey,
+                    Obx(
+                      () => Center(
+                        child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 40.0),
+                            child: TextField(
+                              controller: _loginController.senhaController,
+                              obscureText: !_loginController.showPassword.value,
+                              decoration: InputDecoration(
+                                labelText: 'Senha',
+                                labelStyle: const TextStyle(
+                                    color: Colors.black, fontSize: 15),
+                                prefixIcon: const Icon(Icons.lock),
+                                prefixIconColor: Colors.grey,
+                                filled: true,
+                                fillColor:
+                                    ColorsController.primary.withOpacity(0.2),
+                                border: const OutlineInputBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(50)),
+                                  borderSide: BorderSide.none,
+                                ),
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _loginController.showPassword.value
+                                        ? Icons.visibility
+                                        : Icons.visibility_off,
+                                    color: Colors.grey,
+                                  ),
+                                  onPressed:
+                                      _loginController.showPasswordToggle,
+                                ),
                               ),
-                              onPressed: _loginController.showPasswordToggle,
-                            ),
-                          ),
-                        )),
-                    const Spacer(),
-                    CustomSecondaryButton(
-                      text: 'Login',
-                      colorButton: ColorsController.primary,
-                      colorBackground: true,
-                      onPressed: _loginController.login,
+                            )),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    Center(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                        child: CustomSecondaryButton(
+                          text: 'Login',
+                          colorButton: ColorsController.primary,
+                          colorBackground: true,
+                          onPressed: _loginController.login,
+                        ),
+                      ),
                     ),
                     const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
-            ),
           ),
         ),
-      );
+      ),
+    );
   }
 }
-
