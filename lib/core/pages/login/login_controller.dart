@@ -15,8 +15,7 @@ class LoginController extends GetxController {
 
   void login() {
     if (formKey.currentState!.validate()) {
-      print('Email: ${emailController.text}');
-      print('Senha: ${senhaController.text}');
+      
     }
   }
 }

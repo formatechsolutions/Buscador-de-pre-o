@@ -12,9 +12,7 @@ class RegisterController extends GetxController {
 
   void register() {
     if (formKey.currentState!.validate()) {
-      print('Nome: ${nomeController.text}');
-      print('Email: ${emailController.text}');
-      print('Senha: ${senhaController.text}');
+      
     }
   }
 
