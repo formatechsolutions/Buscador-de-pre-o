@@ -27,18 +27,13 @@ class HomePage extends StatelessWidget {
                 filterQuality: FilterQuality.high,
                 alignment: Alignment.topCenter,
               ),
-              Image(
-                image: const AssetImage('assets/icons/icon.png'),
-                height: screenHeight * 0.15,
-                filterQuality: FilterQuality.high,
-                alignment: Alignment.center,
-              ),
+              const Spacer(),
               Transform.translate(
                 offset: const Offset(0, -10),
                 child: Text(
                   "BuscaPreço",
                   style: TextStyle(
-                    fontSize: screenWidth * 0.09,
+                    fontSize: screenWidth * 0.12,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w900,
                     color: ColorsController.primary,
