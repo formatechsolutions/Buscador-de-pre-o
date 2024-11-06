@@ -12,6 +12,9 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
     return GetBuilder<LoginController>(
       init: _loginController,
       builder: (controller) => Scaffold(
@@ -25,6 +28,24 @@ class LoginPage extends StatelessWidget {
                 key: _loginController.formKey,
                 child: Column(
                   children: [
+                    const Text(
+                      'Login',
+                      style: TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: ColorsController.primary,
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Image(
+                      image: const AssetImage('assets/images/banner_login.png'),
+                      repeat: ImageRepeat.noRepeat,
+                      filterQuality: FilterQuality.high,
+                      alignment: Alignment.topCenter,
+                      height: screenHeight * 0.4,
+                    ),
+                    const SizedBox(height: 40),
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -85,7 +106,7 @@ class LoginPage extends StatelessWidget {
                             )),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 40),
                     Center(
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 40.0),
