@@ -3,6 +3,7 @@
 import 'package:busca_preco/core/pages/custom/appBar/simple_app_bar.dart';
 import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
+import 'package:busca_preco/core/pages/custom/text/custom_text.dart';
 import 'package:busca_preco/core/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -130,27 +131,25 @@ class LoginPage extends StatelessWidget {
                         child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              const Text(
-                                'Esqueceu sua senha? ',
+                              const CustomText(
+                                type: CustomTextEnum.small,
+                                text: 'Esqueceu sua senha? ',
                                 style: TextStyle(
-                                  fontSize: 15,
-                                  color: ColorsTheme.primary,
-                                  fontFamily: 'Roboto',
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {},
-                                child: const Text(
-                                  'Clique aqui',
-                                  style: TextStyle(
-                                    fontSize: 15,
                                     fontWeight: FontWeight.bold,
                                     color: ColorsTheme.primary,
-                                    fontFamily: 'Roboto',
-                                    decoration: TextDecoration.underline
-                                  ),
-                                ),
+                                    fontFamily: 'Roboto'),
                               ),
+                              GestureDetector(
+                                  onTap: () {},
+                                  child: const CustomText(
+                                    type: CustomTextEnum.small,
+                                    text: 'Clique aqui',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: ColorsTheme.primary,
+                                        fontFamily: 'Roboto',
+                                        decoration: TextDecoration.underline),
+                                  )),
                             ]),
                       )
                     ],
