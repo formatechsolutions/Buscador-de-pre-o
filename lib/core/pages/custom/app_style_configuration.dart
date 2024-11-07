@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
 class AppStyleConfiguration {
-  static final borderRadiusButton = BorderRadius.circular(40.0);
+  static final borderRadiusButton = BorderRadius.circular(15.0);
 }

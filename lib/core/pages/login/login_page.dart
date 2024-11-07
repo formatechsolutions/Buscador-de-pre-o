@@ -1,7 +1,7 @@
 // ignore_for_file: use_key_in_widget_constructors, file_names
 
 import 'package:busca_preco/core/pages/custom/appBar/simple_app_bar.dart';
-import 'package:busca_preco/core/pages/custom/button/secondary_button.dart';
+import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 30,
                           fontWeight: FontWeight.bold,
-                          color: ColorsController.primary,
+                          color: ColorsTheme.primary,
                           fontFamily: 'Roboto',
                         ),
                       ),
@@ -56,15 +56,15 @@ class LoginPage extends StatelessWidget {
                             decoration: InputDecoration(
                               labelText: 'Email',
                               labelStyle: const TextStyle(
-                                  color: Colors.black, fontSize: 15),
+                                  color: Color.fromARGB(255, 85, 85, 85), fontSize: 15),
                               prefixIcon: const Icon(Icons.person),
                               prefixIconColor: Colors.grey,
                               filled: true,
                               fillColor:
-                                  ColorsController.primary.withOpacity(0.2),
+                                  ColorsTheme.primary.withOpacity(0.2),
                               border: const OutlineInputBorder(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(50)),
+                                    BorderRadius.all(Radius.circular(15)),
                                 borderSide: BorderSide.none,
                               ),
                             ),
@@ -84,15 +84,15 @@ class LoginPage extends StatelessWidget {
                                 decoration: InputDecoration(
                                   labelText: 'Senha',
                                   labelStyle: const TextStyle(
-                                      color: Colors.black, fontSize: 15),
+                                      color: Color.fromARGB(255, 85, 85, 85), fontSize: 15),
                                   prefixIcon: const Icon(Icons.lock),
                                   prefixIconColor: Colors.grey,
                                   filled: true,
                                   fillColor:
-                                      ColorsController.primary.withOpacity(0.2),
+                                      ColorsTheme.primary.withOpacity(0.2),
                                   border: const OutlineInputBorder(
                                     borderRadius:
-                                        BorderRadius.all(Radius.circular(50)),
+                                        BorderRadius.all(Radius.circular(15)),
                                     borderSide: BorderSide.none,
                                   ),
                                   suffixIcon: IconButton(
@@ -113,11 +113,12 @@ class LoginPage extends StatelessWidget {
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                          child: CustomSecondaryButton(
+                          child: CustomButton(
                             text: 'Login',
-                            colorButton: ColorsController.primary,
+                            colorButton: ColorsTheme.primary,
                             colorBackground: true,
                             onPressed: _loginController.login,
+                            buttonEnum: CustomButtonEnum.secondary,
                           ),
                         ),
                       ),

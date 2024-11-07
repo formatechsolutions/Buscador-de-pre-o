@@ -23,7 +23,7 @@ class VersionApp extends StatelessWidget {
               final buildNumber = snapshot.data?.buildNumber ?? '';
               return CustomTextTransparent(
                 text: 'Versão: $version+$buildNumber',
-                color: ColorsController.transparentGrey,
+                color: ColorsTheme.transparentGrey,
               );
             }
           },

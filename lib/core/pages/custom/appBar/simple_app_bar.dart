@@ -15,7 +15,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
           elevation: 0,
           leading: IconButton(
             icon: const Icon(Icons.arrow_back),
-            color: ColorsController.textBlack,
+            color: ColorsTheme.textBlack,
             onPressed: () => Navigator.of(Get.context!).pop(),
           ),
         ));

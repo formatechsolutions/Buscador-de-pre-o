@@ -3,11 +3,11 @@
 import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/custom/text/version_app.dart';
+import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     // final double screenHeight = MediaQuery.of(context).size.height;
@@ -36,19 +36,19 @@ class HomePage extends StatelessWidget {
                     fontSize: screenWidth * 0.12,
                     fontFamily: 'Roboto',
                     fontWeight: FontWeight.w900,
-                    color: ColorsController.primary,
+                    color: ColorsTheme.primary,
                   ),
                 ),
               ),
               const Spacer(),
-              const SizedBox(
+              SizedBox(
                 width: 300,
-                child: CustomButtonMain(text: 'REGISTRAR', toPage: '/register', colorButton: ColorsController.primary, colorBackground: false)
+                child: CustomButton(text: 'REGISTRAR', colorButton: ColorsTheme.primary, colorBackground: false, onPressed: () => Get.toNamed(Routes.register))
               ),
               const SizedBox(height: 20.0),
-              const SizedBox(
+              SizedBox(
                 width: 300,
-                child: CustomButtonMain(text: 'LOGIN', toPage: '/login', colorButton: ColorsController.primary, colorBackground: true)
+                child: CustomButton(text: 'LOGIN', colorButton: ColorsTheme.primary, colorBackground: true, onPressed: () => Get.toNamed(Routes.login))
               ),
               const Spacer(),
               const VersionApp(),

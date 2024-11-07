@@ -1,32 +1,37 @@
 import 'package:busca_preco/core/pages/custom/app_style_configuration.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class CustomButtonMain extends StatelessWidget {
-  final String text;
-  final String toPage;
-  final Color colorButton;
+enum CustomButtonEnum {
+  primary,
+  secondary,
+}
+
+class CustomButton extends StatelessWidget {
+  final CustomButtonEnum buttonEnum;
+  final VoidCallback? onPressed;
   final bool colorBackground;
+  final Color colorButton;
+  final String text;
 
-  const CustomButtonMain({
+  const CustomButton({
     super.key,
+    this.onPressed,
     required this.text,
-    required this.toPage,
-    required this.colorButton, 
+    required this.colorButton,
     required this.colorBackground,
+    this.buttonEnum = CustomButtonEnum.primary,
   });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.6,
+      width: MediaQuery.of(context).size.width * (buttonEnum == CustomButtonEnum.primary ? 0.6 : 0.8),
       child: OutlinedButton(
-        onPressed: () {
-          Get.toNamed(toPage);
-        },
+        onPressed: onPressed,
         style: OutlinedButton.styleFrom(
-          padding: const EdgeInsets.all(25.0),
+          padding: EdgeInsets.all(
+              buttonEnum == CustomButtonEnum.primary ? 25.0 : 15.0),
           shape: RoundedRectangleBorder(
             borderRadius: AppStyleConfiguration.borderRadiusButton,
           ),
@@ -39,7 +44,8 @@ class CustomButtonMain extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            color: colorBackground ? ColorsController.textWhite : colorButton,
+            color: colorBackground ? ColorsTheme.textWhite : colorButton,
+            fontSize: buttonEnum == CustomButtonEnum.primary ? 14.0 : 18.0,
             fontWeight: FontWeight.bold,
           ),
         ),
