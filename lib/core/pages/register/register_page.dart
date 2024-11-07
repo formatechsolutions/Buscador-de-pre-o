@@ -17,7 +17,7 @@ class RegisterPage extends StatelessWidget {
     return GetBuilder<RegisterController>(
       init: _registerController,
       builder: (controller) => Scaffold(
-        appBar: SimpleAppBar(),
+        appBar: SimpleAppBar.build(),
         body: Obx(
           () => Container(
               color: ColorController().backgroundColor.value,

@@ -18,7 +18,8 @@ class LoginPage extends StatelessWidget {
     return GetBuilder<LoginController>(
       init: _loginController,
       builder: (controller) => Scaffold(
-        appBar: SimpleAppBar(),
+        extendBodyBehindAppBar: true,
+        appBar: SimpleAppBar.build(),
         body: Obx(
           () => SingleChildScrollView(
             child: Container(
@@ -29,6 +30,7 @@ class LoginPage extends StatelessWidget {
                   key: _loginController.formKey,
                   child: Column(
                     children: [
+                      const SizedBox(height: 10),
                       const Text(
                         'Login',
                         style: TextStyle(
@@ -47,7 +49,7 @@ class LoginPage extends StatelessWidget {
                         alignment: Alignment.topCenter,
                         height: screenHeight * 0.4,
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 20),
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -56,12 +58,12 @@ class LoginPage extends StatelessWidget {
                             decoration: InputDecoration(
                               labelText: 'Email',
                               labelStyle: const TextStyle(
-                                  color: Color.fromARGB(255, 85, 85, 85), fontSize: 15),
+                                  color: Color.fromARGB(255, 85, 85, 85),
+                                  fontSize: 15),
                               prefixIcon: const Icon(Icons.person),
                               prefixIconColor: Colors.grey,
                               filled: true,
-                              fillColor:
-                                  ColorsTheme.primary.withOpacity(0.2),
+                              fillColor: ColorsTheme.primary.withOpacity(0.2),
                               border: const OutlineInputBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(15)),
@@ -84,7 +86,8 @@ class LoginPage extends StatelessWidget {
                                 decoration: InputDecoration(
                                   labelText: 'Senha',
                                   labelStyle: const TextStyle(
-                                      color: Color.fromARGB(255, 85, 85, 85), fontSize: 15),
+                                      color: Color.fromARGB(255, 85, 85, 85),
+                                      fontSize: 15),
                                   prefixIcon: const Icon(Icons.lock),
                                   prefixIconColor: Colors.grey,
                                   filled: true,
@@ -109,7 +112,7 @@ class LoginPage extends StatelessWidget {
                               )),
                         ),
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 60),
                       Center(
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -123,6 +126,33 @@ class LoginPage extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
+                      Center(
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              const Text(
+                                'Esqueceu sua senha? ',
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: ColorsTheme.primary,
+                                  fontFamily: 'Roboto',
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: const Text(
+                                  'Clique aqui',
+                                  style: TextStyle(
+                                    fontSize: 15,
+                                    fontWeight: FontWeight.bold,
+                                    color: ColorsTheme.primary,
+                                    fontFamily: 'Roboto',
+                                    decoration: TextDecoration.underline
+                                  ),
+                                ),
+                              ),
+                            ]),
+                      )
                     ],
                   ),
                 ),

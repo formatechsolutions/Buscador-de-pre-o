@@ -2,7 +2,7 @@
 
 import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
-import 'package:busca_preco/core/pages/custom/text/version_app.dart';
+import 'package:busca_preco/core/pages/custom/text/custom_text.dart';
 import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -51,7 +51,7 @@ class HomePage extends StatelessWidget {
                 child: CustomButton(text: 'LOGIN', colorButton: ColorsTheme.primary, colorBackground: true, onPressed: () => Get.toNamed(Routes.login))
               ),
               const Spacer(),
-              const VersionApp(),
+              const CustomText(type: CustomTextEnum.versionApp),
               const SizedBox(height: 20),
             ],
           ),
