@@ -3,6 +3,7 @@
 import 'package:busca_preco/core/pages/custom/appBar/simple_app_bar.dart';
 import 'package:busca_preco/core/pages/custom/button/custom_button_main.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
+import 'package:busca_preco/core/pages/custom/input/custom_input_form.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_text.dart';
 import 'package:busca_preco/core/pages/login/login_controller.dart';
 import 'package:flutter/material.dart';
@@ -52,66 +53,15 @@ class LoginPage extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       Center(
-                        child: Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                          child: TextField(
-                            controller: _loginController.emailController,
-                            decoration: InputDecoration(
-                              labelText: 'Email',
-                              labelStyle: const TextStyle(
-                                  color: Color.fromARGB(255, 85, 85, 85),
-                                  fontSize: 15),
-                              prefixIcon: const Icon(Icons.person),
-                              prefixIconColor: Colors.grey,
-                              filled: true,
-                              fillColor: ColorsTheme.primary.withOpacity(0.2),
-                              border: const OutlineInputBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(15)),
-                                borderSide: BorderSide.none,
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
+                          child: CustomInputForm(
+                              type: CustomInputFormEnum.email,
+                              text: 'Email')),
                       const SizedBox(height: 20),
                       Obx(
                         () => Center(
-                          child: Padding(
-                              padding:
-                                  const EdgeInsets.symmetric(horizontal: 40.0),
-                              child: TextField(
-                                controller: _loginController.senhaController,
-                                obscureText:
-                                    !_loginController.showPassword.value,
-                                decoration: InputDecoration(
-                                  labelText: 'Senha',
-                                  labelStyle: const TextStyle(
-                                      color: Color.fromARGB(255, 85, 85, 85),
-                                      fontSize: 15),
-                                  prefixIcon: const Icon(Icons.lock),
-                                  prefixIconColor: Colors.grey,
-                                  filled: true,
-                                  fillColor:
-                                      ColorsTheme.primary.withOpacity(0.2),
-                                  border: const OutlineInputBorder(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(15)),
-                                    borderSide: BorderSide.none,
-                                  ),
-                                  suffixIcon: IconButton(
-                                    icon: Icon(
-                                      _loginController.showPassword.value
-                                          ? Icons.visibility
-                                          : Icons.visibility_off,
-                                      color: Colors.grey,
-                                    ),
-                                    onPressed:
-                                        _loginController.showPasswordToggle,
-                                  ),
-                                ),
-                              )),
-                        ),
+                            child: CustomInputForm(
+                                type: CustomInputFormEnum.password,
+                                text: 'Senha')),
                       ),
                       const SizedBox(height: 60),
                       Center(
