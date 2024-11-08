@@ -22,8 +22,19 @@ class LoginPage extends StatelessWidget {
       builder: (controller) => Scaffold(
         extendBodyBehindAppBar: true,
         appBar: SimpleAppBar.build(),
-        body: Obx(
-          () => SingleChildScrollView(
+        body: Obx(() {
+            // sempre declara todos os Rx no início do método build do Obx
+            // Isso vai ajudar vc a ver quais variáveis estão atualizando esse componente
+            // Se ficar solto no meio do build, um dia um componente vai tá atualizando
+            // em um momento que vc não quer, e vc vai ter que repassar tudo caçando
+            // quais variáveis podem estar triggando o update
+
+            // ex:
+            // final isLoading = _loginController.isLoading.value;
+            // final error = _loginController.error.value;
+            // final success = _loginController.success.value;
+
+            return SingleChildScrollView(
             child: Container(
               color: ColorController().backgroundColor.value,
               child: Padding(
@@ -54,14 +65,12 @@ class LoginPage extends StatelessWidget {
                       const SizedBox(height: 20),
                       Center(
                           child: CustomInputForm(
-                              type: CustomInputFormEnum.email,
-                              text: 'Email')),
+                              type: CustomInputFormEnum.email, text: 'Email',),),
                       const SizedBox(height: 20),
-                      Obx(
-                        () => Center(
+                       Center(
                             child: CustomInputForm(
                                 type: CustomInputFormEnum.password,
-                                text: 'Senha')),
+                                text: 'Senha',),
                       ),
                       const SizedBox(height: 60),
                       Center(
@@ -107,9 +116,10 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
-          ),
-        ),
-      ),
+          );
+        
+          }
+      ),),
     );
   }
 }

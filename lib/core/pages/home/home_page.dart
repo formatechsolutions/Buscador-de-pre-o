@@ -43,12 +43,24 @@ class HomePage extends StatelessWidget {
               const Spacer(),
               SizedBox(
                 width: 300,
-                child: CustomButton(text: 'REGISTRAR', colorButton: ColorsTheme.primary, colorBackground: false, onPressed: () => Get.toNamed(Routes.register))
+                child: CustomButton(
+                  text: 'REGISTRAR',
+                  colorButton: ColorsTheme.primary,
+                  colorBackground: false,
+                  onPressed: () => Get.toNamed(Routes.register),
+                ),
               ),
               const SizedBox(height: 20.0),
               SizedBox(
                 width: 300,
-                child: CustomButton(text: 'LOGIN', colorButton: ColorsTheme.primary, colorBackground: true, onPressed: () => Get.toNamed(Routes.login))
+                child: CustomButton(
+                  text: 'LOGIN',
+                  colorButton: ColorsTheme.primary,
+                  colorBackground: true,
+                  onPressed: () =>
+                    Get.toNamed(Routes.login),
+                  
+                ),
               ),
               const Spacer(),
               const CustomText(type: CustomTextEnum.versionApp),
