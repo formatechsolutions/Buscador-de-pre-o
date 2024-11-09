@@ -95,7 +95,6 @@ class HomePage extends StatelessWidget {
                         style: const TextStyle(color: Colors.blue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            // Ação ao clicar em "Termos de serviço"
                             print("Termos de serviço clicado");
                           },
                       ),
@@ -107,7 +106,6 @@ class HomePage extends StatelessWidget {
                         style: const TextStyle(color: Colors.blue),
                         recognizer: TapGestureRecognizer()
                           ..onTap = () {
-                            // Ação ao clicar em "Política de Privacidade"
                             print("Política de Privacidade clicada");
                           },
                       ),

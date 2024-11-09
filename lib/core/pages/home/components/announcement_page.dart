@@ -25,8 +25,12 @@ class AnnouncementComponent extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(height: screenHeight * 0.12),
-            const Image(
-              image: AssetImage('assets/images/Trust.png'),
+            Image(
+              image: currentPage.value == 0
+                  ? const AssetImage('assets/images/primaryMain.png')
+                  : currentPage.value == 1
+                      ? const AssetImage('assets/images/thirthMain.png')
+                      : const AssetImage('assets/images/secondMain.png'),
               repeat: ImageRepeat.noRepeat,
               filterQuality: FilterQuality.high,
               alignment: Alignment.center,
