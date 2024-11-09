@@ -4,9 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class AnnouncementComponent extends StatelessWidget {
-  final RxInt currentPage = 0.obs;
+  final RxInt currentPage;
+  final VoidCallback onFinalizar;
 
-  AnnouncementComponent({super.key});
+  const AnnouncementComponent({
+    required this.currentPage,
+    required this.onFinalizar,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +68,11 @@ class AnnouncementComponent extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 40.0),
                 child: CustomButton(
                   onPressed: () {
-                    if (currentPage.value < 2) currentPage.value++;
+                    if (currentPage.value < 2) {
+                      currentPage.value++;
+                    } else {
+                      onFinalizar();
+                    }
                   },
                   text: currentPage.value < 2 ? 'Avançar' : 'Finalizar',
                   colorButton: ColorsTheme.primary,
