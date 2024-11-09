@@ -32,9 +32,7 @@ class CustomButton extends StatelessWidget {
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.all(
               buttonEnum == CustomButtonEnum.primary ? 25.0 : 15.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: AppStyleConfiguration.borderRadiusButton,
-          ),
+         
           side: BorderSide(
             color: colorButton,
             width: 2.0,
