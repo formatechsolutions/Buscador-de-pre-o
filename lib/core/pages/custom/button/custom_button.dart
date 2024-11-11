@@ -31,13 +31,16 @@ class CustomButton extends StatelessWidget {
         onPressed: onPressed,
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.all(
-              buttonEnum == CustomButtonEnum.primary ? 25.0 : 15.0),
-         
+            buttonEnum == CustomButtonEnum.primary ? 25.0 : 15.0,
+          ),
           side: BorderSide(
             color: colorButton,
             width: 2.0,
           ),
           backgroundColor: colorBackground ? colorButton : Colors.transparent,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppStyleConfiguration.borderRadiusButton as double),
+          ),
         ),
         child: Text(
           text,
