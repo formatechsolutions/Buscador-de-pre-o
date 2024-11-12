@@ -1,6 +1,7 @@
 import 'package:busca_preco/core/pages/custom/button/custom_button.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/home/components/announcement_page.dart';
+import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -56,7 +57,9 @@ class HomePage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40.0),
                     child: CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(Routes.register);
+                      },
                       text: 'Registrar',
                       colorButton: ColorsTheme.primary,
                       colorBackground: true,
@@ -69,7 +72,9 @@ class HomePage extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40.0),
                     child: CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        Get.toNamed(Routes.login);
+                      },
                       text: 'Log In',
                       colorButton: ColorsTheme.primary,
                       colorBackground: false,
@@ -92,22 +97,18 @@ class HomePage extends StatelessWidget {
                       ),
                       TextSpan(
                         text: "Termos de serviço",
-                        style: const TextStyle(color: Colors.blue),
+                        style: const TextStyle(color: ColorsTheme.primary),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            print("Termos de serviço clicado");
-                          },
+                          ..onTap = () {},
                       ),
                       const TextSpan(
                         text: " e ",
                       ),
                       TextSpan(
                         text: "Política de Privacidade",
-                        style: const TextStyle(color: Colors.blue),
+                        style: const TextStyle(color: ColorsTheme.primary),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () {
-                            print("Política de Privacidade clicada");
-                          },
+                          ..onTap = () {},
                       ),
                     ],
                   ),
