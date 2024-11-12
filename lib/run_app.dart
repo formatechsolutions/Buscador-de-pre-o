@@ -1,5 +1,5 @@
 import 'package:busca_preco/core/routes/routes.dart';
-import 'package:busca_preco/services/services_manager.dart';
+import 'package:busca_preco/core/services/services_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dart:async';
