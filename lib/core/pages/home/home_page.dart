@@ -25,14 +25,14 @@ class HomePage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
                 const Image(
                   image: AssetImage('assets/images/registerPage.png'),
                   repeat: ImageRepeat.noRepeat,
                   filterQuality: FilterQuality.high,
                   alignment: Alignment.center,
                 ),
-                SizedBox(height: screenHeight * 0.03),
+                const SizedBox(height: 8),
                 const Text(
                   "Crie uma conta no\nBuscaPreço!",
                   style: TextStyle(
@@ -42,7 +42,7 @@ class HomePage extends StatelessWidget {
                   ),
                   textAlign: TextAlign.center,
                 ),
-                SizedBox(height: screenHeight * 0.01),
+                const SizedBox(height: 8),
                 const Text(
                   "Tenha acesso a várias funcionalidades\npara facilitar a sua gestão de\nmercadorias!",
                   style: TextStyle(
@@ -67,7 +67,7 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
                 Center(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -113,7 +113,7 @@ class HomePage extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
               ],
             ),
           );

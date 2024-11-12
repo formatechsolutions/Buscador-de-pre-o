@@ -24,7 +24,7 @@ class AnnouncementComponent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            SizedBox(height: screenHeight * 0.12),
+            const SizedBox(height: 64),
             Image(
               image: currentPage.value == 0
                   ? const AssetImage('assets/images/primaryMain.png')
@@ -35,7 +35,7 @@ class AnnouncementComponent extends StatelessWidget {
               filterQuality: FilterQuality.high,
               alignment: Alignment.center,
             ),
-            SizedBox(height: screenHeight * 0.1),
+            const SizedBox(height: 64),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(3, (index) {
@@ -52,7 +52,7 @@ class AnnouncementComponent extends StatelessWidget {
                 );
               }),
             ),
-            SizedBox(height: screenHeight * 0.03),
+            const SizedBox(height: 16),
             Text(
               currentPage.value == 0
                   ? "Junte-se ao melhor\napp para o seu\nnegócio!"
