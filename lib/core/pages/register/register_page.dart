@@ -36,12 +36,10 @@ class RegisterPage extends StatelessWidget {
                   const SizedBox(height: 20),
                   CustomFormTextfield(text: 'Email', icon: Icons.email),
                   const SizedBox(height: 20),
-                  Obx(
-                    () => CustomFormTextfield(
-                      text: 'Senha',
-                      icon: Icons.lock,
-                      isPassword: true,
-                    ),
+                  CustomFormTextfield(
+                    text: 'Senha',
+                    icon: Icons.lock,
+                    isPassword: true,
                   ),
                 ],
               ),
