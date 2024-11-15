@@ -20,7 +20,7 @@ class RegisterPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 28.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -47,16 +47,16 @@ class RegisterPage extends StatelessWidget {
                       children: [
                         CustomFormTextfield(
                           text: 'DDD',
-                          width:
-                              100,
-                              centerText: true,
+                          width: 100,
+                          centerText: true,
+                          type: CustomFormTextfieldEnum.number,
                         ),
-                        const SizedBox(
-                            width: 16),
+                        const SizedBox(width: 16),
                         Expanded(
                           child: CustomFormTextfield(
                             text: 'Telefone',
                             icon: Icons.phone,
+                            type: CustomFormTextfieldEnum.number,
                           ),
                         ),
                       ],

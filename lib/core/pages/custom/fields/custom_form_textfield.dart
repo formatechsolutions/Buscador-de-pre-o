@@ -2,7 +2,12 @@ import 'package:busca_preco/core/pages/custom/app_style_configuration.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/custom/fields/password_visibility_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+
+enum CustomFormTextfieldEnum {
+  number,
+}
 
 class CustomFormTextfield extends StatelessWidget {
   final String text;
@@ -12,9 +17,16 @@ class CustomFormTextfield extends StatelessWidget {
       Get.put(PasswordVisibilityController());
   final double? width;
   final bool? centerText;
+  final CustomFormTextfieldEnum? type;
 
   CustomFormTextfield(
-      {super.key, required this.text, this.icon, this.isPassword, this.width, this.centerText});
+      {super.key,
+      required this.text,
+      this.icon,
+      this.isPassword,
+      this.width,
+      this.centerText,
+      this.type});
 
   @override
   Widget build(BuildContext context) {
@@ -81,6 +93,12 @@ class CustomFormTextfield extends StatelessWidget {
       return SizedBox(
         width: width,
         child: TextField(
+          keyboardType: type == CustomFormTextfieldEnum.number
+              ? TextInputType.number
+              : TextInputType.text,
+          inputFormatters: type == CustomFormTextfieldEnum.number
+              ? [FilteringTextInputFormatter.digitsOnly]
+              : [],
           textAlign: centerText == true ? TextAlign.center : TextAlign.start,
           style: const TextStyle(
             color: ColorsTheme.inputDefaultColor,
