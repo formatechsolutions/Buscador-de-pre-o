@@ -17,4 +17,5 @@ class ColorsTheme {
   static const Color textWhite = Color(0xFFFFFFFF);
   static const Color textBlack = Color(0xFF000000);
   static const Color textGrey = Color(0xFF2A2A2A);
+  static const Color inputDefaultColor = Color(0xFFB8B8B8);
 }

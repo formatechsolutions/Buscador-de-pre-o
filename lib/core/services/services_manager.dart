@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:get/get.dart';
 
 class ServicesManager {
   static final servicesInitialized = Completer<void>();
