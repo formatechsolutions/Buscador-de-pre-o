@@ -7,8 +7,7 @@ class CustomFormTextfield extends StatelessWidget {
   final String text;
   final IconData? icon;
   final bool? isPassword;
-  final PasswordVisibilityController _controller =
-      Get.put(PasswordVisibilityController());
+  final PasswordVisibilityController _controller = Get.put(PasswordVisibilityController());
 
   CustomFormTextfield({
     super.key,
