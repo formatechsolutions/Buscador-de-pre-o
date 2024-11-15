@@ -49,7 +49,6 @@ class CustomFormTextfield extends StatelessWidget {
       );
     } else {
       return TextField(
-        obscureText: isPassword == true ? _controller.isObscured.value : false,
         decoration: InputDecoration(
           hintText: text,
           border: const OutlineInputBorder(),
@@ -60,16 +59,6 @@ class CustomFormTextfield extends StatelessWidget {
             ),
           ),
           prefixIcon: icon != null ? Icon(icon) : null,
-          suffixIcon: isPassword == true
-              ? IconButton(
-                  icon: Icon(
-                    _controller.isObscured.value
-                        ? Icons.visibility
-                        : Icons.visibility_off,
-                  ),
-                  onPressed: _controller.toggleVisibility,
-                )
-              : null,
         ),
       );
     }
