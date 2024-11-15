@@ -20,7 +20,7 @@ class RegisterPage extends StatelessWidget {
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 28.0),
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -69,7 +69,9 @@ class RegisterPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: CustomButton(
-              onPressed: () {},
+              onPressed: () {
+
+              },
               text: 'Registrar',
               colorButton: ColorsTheme.primary,
               colorBackground: true,
