@@ -1,13 +1,3 @@
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.2'
-    }
-}
-
 allprojects {
     repositories {
         google()
@@ -15,18 +5,14 @@ allprojects {
     }
 }
 
-tasks.register("clean", Delete) {
-    delete rootProject.buildDir
+rootProject.buildDir = "../build"
+subprojects {
+    project.buildDir = "${rootProject.buildDir}/${project.name}"
+}
+subprojects {
+    project.evaluationDependsOn(":app")
 }
 
-subprojects {
-    afterEvaluate { project ->
-        if (project.name == "flutter_inappwebview_android" && project.hasProperty("android")) {
-            project.android.buildTypes.each { buildType ->
-                if (buildType.name == "release") {
-                    buildType.minifyEnabled = false
-                }
-            }
-        }
-    }
+tasks.register("clean", Delete) {
+    delete rootProject.buildDir
 }

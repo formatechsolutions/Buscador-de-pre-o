@@ -1,4 +1,4 @@
-import 'package:busca_preco/core/pages/custom/colors_controller.dart';
+import '../../colors_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

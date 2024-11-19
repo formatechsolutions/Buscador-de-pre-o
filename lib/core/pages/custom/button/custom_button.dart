@@ -1,5 +1,5 @@
-import 'package:busca_preco/core/pages/custom/app_style_configuration.dart';
-import 'package:busca_preco/core/pages/custom/colors_controller.dart';
+import '../app_style_configuration.dart';
+import '../colors_controller.dart';
 import 'package:flutter/material.dart';
 
 enum CustomButtonEnum {

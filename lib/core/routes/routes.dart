@@ -1,6 +1,6 @@
-import 'package:busca_preco/core/pages/home/home_page.dart';
-import 'package:busca_preco/core/pages/login/login_page.dart';
-import 'package:busca_preco/core/pages/register/register_page.dart';
+import '../pages/home/home_page.dart';
+import '../pages/login/login_page.dart';
+import '../pages/register/register_page.dart';
 import 'package:get/get.dart';
 
 class Routes {

@@ -1,9 +1,9 @@
-import 'package:busca_preco/core/pages/custom/appBar/simpleAppBar/simple_app_bar.dart';
-import 'package:busca_preco/core/pages/custom/button/custom_button.dart';
-import 'package:busca_preco/core/pages/custom/colors_controller.dart';
-import 'package:busca_preco/core/pages/custom/fields/custom_form_textfield.dart';
-import 'package:busca_preco/core/pages/custom/text/custom_subtitle_primary.dart';
-import 'package:busca_preco/core/pages/custom/text/custom_title_primary.dart';
+import '../custom/appBar/simpleAppBar/simple_app_bar.dart';
+import '../custom/button/custom_button.dart';
+import '../custom/colors_controller.dart';
+import '../custom/fields/custom_form_textfield.dart';
+import '../custom/text/custom_subtitle_primary.dart';
+import '../custom/text/custom_title_primary.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {

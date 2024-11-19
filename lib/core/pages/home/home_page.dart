@@ -1,7 +1,7 @@
-import 'package:busca_preco/core/pages/custom/button/custom_button.dart';
-import 'package:busca_preco/core/pages/custom/colors_controller.dart';
-import 'package:busca_preco/core/pages/home/components/announcement_page.dart';
-import 'package:busca_preco/core/routes/routes.dart';
+import '../custom/button/custom_button.dart';
+import '../custom/colors_controller.dart';
+import 'components/announcement_page.dart';
+import '../../routes/routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
