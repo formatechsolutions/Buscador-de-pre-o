@@ -1,3 +1,5 @@
+import 'package:busca_preco/core/pages/reset_password/reset_password.dart';
+
 import '../pages/home/home_page.dart';
 import '../pages/login/login_page.dart';
 import '../pages/register/register_page.dart';
@@ -7,6 +9,7 @@ class Routes {
   static const String home = '/home';
   static const String login = '/login';
   static const String register = '/register';
+  static const String resetPassword = '/reset-password';
 
   static final routes = <GetPage<dynamic>>[
     GetPage(
@@ -20,6 +23,10 @@ class Routes {
     GetPage(
       name: login,
       page: LoginPage.new,
+    ),
+    GetPage(
+      name: resetPassword,
+      page: ResetPassword.new,
     ),
   ];
 }

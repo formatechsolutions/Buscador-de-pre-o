@@ -18,15 +18,18 @@ class CustomFormTextfield extends StatelessWidget {
   final double? width;
   final bool? centerText;
   final CustomFormTextfieldEnum? type;
+  final TextEditingController? controller;
 
-  CustomFormTextfield(
-      {super.key,
-      required this.text,
-      this.icon,
-      this.isPassword,
-      this.width,
-      this.centerText,
-      this.type});
+  CustomFormTextfield({
+    super.key,
+    required this.text,
+    this.controller,
+    this.icon,
+    this.isPassword,
+    this.width,
+    this.centerText,
+    this.type,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +38,8 @@ class CustomFormTextfield extends StatelessWidget {
         () => SizedBox(
           width: width,
           child: TextField(
-            obscureText:
-                isPassword == true ? _controller.isObscured.value : false,
+            controller: controller,
+            obscureText: _controller.isObscured.value,
             style: const TextStyle(
               color: ColorsTheme.inputDefaultColor,
               fontFamily: AppStyleConfiguration.defaultFont,
@@ -74,17 +77,15 @@ class CustomFormTextfield extends StatelessWidget {
                       color: ColorsTheme.inputDefaultColor,
                     )
                   : null,
-              suffixIcon: isPassword == true
-                  ? IconButton(
-                      icon: Icon(
-                        _controller.isObscured.value
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        color: ColorsTheme.inputDefaultColor,
-                      ),
-                      onPressed: _controller.toggleVisibility,
-                    )
-                  : null,
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _controller.isObscured.value
+                      ? Icons.visibility_off
+                      : Icons.visibility,
+                  color: ColorsTheme.inputDefaultColor,
+                ),
+                onPressed: _controller.toggleVisibility,
+              ),
             ),
           ),
         ),
@@ -93,6 +94,7 @@ class CustomFormTextfield extends StatelessWidget {
       return SizedBox(
         width: width,
         child: TextField(
+          controller: controller,
           keyboardType: type == CustomFormTextfieldEnum.number
               ? TextInputType.number
               : TextInputType.text,
