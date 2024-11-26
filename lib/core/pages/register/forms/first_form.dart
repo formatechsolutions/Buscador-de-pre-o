@@ -1,3 +1,5 @@
+// ignore_for_file: unrelated_type_equality_checks
+
 import 'package:busca_preco/core/pages/custom/appBar/simpleAppBar/simple_app_bar.dart';
 import 'package:busca_preco/core/pages/custom/button/custom_button.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';

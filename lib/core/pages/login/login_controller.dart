@@ -1,3 +1,4 @@
+import 'package:busca_preco/core/backend/backend_connection.dart';
 import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -5,6 +6,7 @@ import 'package:get/get.dart';
 class LoginController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final BackendConnection backendConnection = BackendConnection();
 
   bool validateFields() {
     return emailController.text.isNotEmpty &&
@@ -13,8 +15,10 @@ class LoginController {
 
   Future<void> login(BuildContext context) async {
     if (validateFields()) {
-      print(
-          "Email: ${emailController.text}, Senha: ${passwordController.text}");
+      print("Email: ${emailController.text}, Senha: ${passwordController.text}");
+
+      backendConnection.login(emailController.text, passwordController.text)
+      .then((value) => Get.toNamed(Routes.dashboard)).catchError((error) => print(error));
     } else {
       showDialog(
         context: context,
