@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const SimpleAppBar({super.key});
+  final VoidCallback? customOnpressed;
+
+  const SimpleAppBar({super.key, this.customOnpressed});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -15,11 +17,9 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       leading: Center(
         child: IconButton(
-          icon: const Icon(
-            Icons.arrow_back,
-          ),
+          icon: const Icon(Icons.arrow_back),
           color: ColorsTheme.textBlack,
-          onPressed: () => Get.back(),
+          onPressed: () => customOnpressed != null ? customOnpressed!() : Get.back(),
         ),
       ),
     );
