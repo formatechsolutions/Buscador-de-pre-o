@@ -1,4 +1,6 @@
+import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Error404 extends StatelessWidget {
   const Error404({super.key});
@@ -44,7 +46,7 @@ class Error404 extends StatelessWidget {
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushReplacementNamed('/');
+                  Get.toNamed(Routes.home);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,

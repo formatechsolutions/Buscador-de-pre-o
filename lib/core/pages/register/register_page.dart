@@ -29,7 +29,11 @@ class RegisterPage extends StatelessWidget {
                 const CustomStatusbar(nivel: 10),
                 SimpleAppBar(
                   customOnpressed: () {
-                    controller.registerPageEtapa--;
+                    if (controller.registerPageEtapa == 0) {
+                      Get.back();
+                    } else {
+                      controller.registerPageEtapa--;
+                    }
                   },
                 ),
                 Expanded(
@@ -98,13 +102,19 @@ class RegisterPage extends StatelessWidget {
             ),
           );
         } else if (controller.registerPageEtapa == 1) {
-          return const Scaffold(
+          return Scaffold(
+            appBar: SimpleAppBar(
+              customOnpressed: () {
+                controller.registerPageEtapa--;
+              },
+            ),
             body: Center(
               child: Text('Second'),
             ),
           );
         } else {
-          return const Scaffold(appBar: SimpleAppBar(), body: Error404());
+          controller.goToRegisterPageEtapa(0);
+          return const Scaffold(body: Error404());
         }
       }),
     );
