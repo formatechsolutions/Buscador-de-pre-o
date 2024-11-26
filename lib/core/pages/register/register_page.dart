@@ -1,6 +1,8 @@
 // ignore_for_file: unrelated_type_equality_checks
 
 import 'package:busca_preco/core/pages/errors/404/error_404.dart';
+import 'package:busca_preco/core/pages/register/forms/first_form.dart';
+import 'package:busca_preco/core/pages/register/forms/second_form.dart';
 import 'package:busca_preco/core/pages/register/register_controller.dart';
 import 'package:get/get.dart';
 
@@ -24,93 +26,11 @@ class RegisterPage extends StatelessWidget {
       body: Obx(() {
         if (controller.registerPageEtapa == 0) {
           return Scaffold(
-            body: Column(
-              children: [
-                const CustomStatusbar(nivel: 10),
-                SimpleAppBar(
-                  customOnpressed: () {
-                    if (controller.registerPageEtapa == 0) {
-                      Get.back();
-                    } else {
-                      controller.registerPageEtapa--;
-                    }
-                  },
-                ),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const CustomTitlePrimary(text: 'Crie uma conta'),
-                          const CustomSubtitlePrimary(
-                            text:
-                                'Adicione suas informações para\ncompletar o seu registro.',
-                          ),
-                          const SizedBox(height: 20),
-                          CustomFormTextfield(
-                            text: 'Nome Completo',
-                            icon: Icons.person,
-                          ),
-                          const SizedBox(height: 20),
-                          CustomFormTextfield(text: 'Email', icon: Icons.email),
-                          const SizedBox(height: 20),
-                          CustomFormTextfield(
-                            text: 'Senha',
-                            icon: Icons.lock,
-                            isPassword: true,
-                          ),
-                          const SizedBox(height: 20),
-                          Row(
-                            children: [
-                              CustomFormTextfield(
-                                text: 'DDD',
-                                width: 100,
-                                centerText: true,
-                                type: CustomFormTextfieldEnum.number,
-                              ),
-                              const SizedBox(width: 16),
-                              Expanded(
-                                child: CustomFormTextfield(
-                                  text: 'Telefone',
-                                  icon: Icons.phone,
-                                  type: CustomFormTextfieldEnum.number,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(16.0),
-                  child: CustomButton(
-                    onPressed: () {
-                      controller.registerPageEtapa++;
-                    },
-                    text: 'Avançar',
-                    colorButton: ColorsTheme.primary,
-                    colorBackground: true,
-                    buttonEnum: CustomButtonEnum.secondary,
-                  ),
-                ),
-                const SizedBox(height: 20),
-              ],
-            ),
+            body: FirstForm(),
           );
         } else if (controller.registerPageEtapa == 1) {
           return Scaffold(
-            appBar: SimpleAppBar(
-              customOnpressed: () {
-                controller.registerPageEtapa--;
-              },
-            ),
-            body: Center(
-              child: Text('Second'),
-            ),
+            body: SecondForm(),
           );
         } else {
           controller.goToRegisterPageEtapa(0);
