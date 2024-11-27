@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 class BackendConnection {
-  final String backendUrl = 'https://f3eb-179-49-254-167.ngrok-free.app';
+  final String backendUrl = 'https://6e63-179-49-254-167.ngrok-free.app';
 
   Future<http.Response> get(String url, Map<String, String> queryParams) {
     final uri = Uri.parse('$backendUrl$url').replace(queryParameters: queryParams);
