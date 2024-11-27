@@ -4,7 +4,9 @@ import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/custom/fields/custom_form_textfield.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_subtitle_primary.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_title_primary.dart';
+import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ResetPassword extends StatelessWidget {
   const ResetPassword({super.key});
@@ -12,7 +14,9 @@ class ResetPassword extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: SimpleAppBar(),
+      appBar: SimpleAppBar(
+        customOnpressed: () => Get.toNamed(Routes.home),
+      ),
       body: Column(
         children: [
           Expanded(
