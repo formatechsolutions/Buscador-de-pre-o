@@ -1,4 +1,5 @@
 import 'package:busca_preco/core/backend/local_storage.dart';
+import 'package:busca_preco/core/pages/errors/404/error_404.dart';
 
 import '../custom/button/custom_button.dart';
 import '../custom/colors_controller.dart';
@@ -43,9 +44,7 @@ class HomePage extends StatelessWidget {
             }),
           );
         } else {
-          return const Center(
-            child: Text('Erro ao carregar dados!'),
-          );
+          return Error404();
         }
       },
     );
