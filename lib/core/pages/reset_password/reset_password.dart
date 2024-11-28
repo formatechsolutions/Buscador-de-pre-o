@@ -4,12 +4,15 @@ import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/custom/fields/custom_form_textfield.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_subtitle_primary.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_title_primary.dart';
+import 'package:busca_preco/core/pages/reset_password/reset_password_controller.dart';
 import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ResetPassword extends StatelessWidget {
-  const ResetPassword({super.key});
+  ResetPassword({super.key});
+
+  final ResetPasswordController controller = Get.put(ResetPasswordController());
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +38,7 @@ class ResetPassword extends StatelessWidget {
                     CustomFormTextfield(
                       text: 'Email',
                       icon: Icons.email,
+                      controller: controller.emailController,
                     ),
                     SizedBox(height: 30),
                   ],
@@ -45,7 +49,7 @@ class ResetPassword extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: CustomButton(
-              onPressed: () => {},
+              onPressed: () => controller.resetPassword(),
               text: 'Redefinir',
               colorButton: ColorsTheme.primary,
               colorBackground: true,
