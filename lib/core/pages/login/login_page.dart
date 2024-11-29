@@ -33,8 +33,8 @@ class LoginPage extends StatelessWidget {
                     ),
                     const SizedBox(height: 20),
                     CustomFormTextfield(
-                      text: 'Nome ou Email',
-                      icon: Icons.perm_identity_sharp,
+                      text: 'Email',
+                      icon: Icons.email,
                       controller: _controller.emailController,
                     ),
                     const SizedBox(height: 20),

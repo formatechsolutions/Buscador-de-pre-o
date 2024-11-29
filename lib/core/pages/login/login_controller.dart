@@ -15,10 +15,30 @@ class LoginController {
 
   Future<void> login(BuildContext context) async {
     if (validateFields()) {
-      print("Email: ${emailController.text}, Senha: ${passwordController.text}");
 
-      backendConnection.login(emailController.text, passwordController.text)
-      .then((value) => Get.toNamed(Routes.dashboard)).catchError((error) => print(error));
+      backendConnection
+          .login(emailController.text, passwordController.text)
+          .then((value) => {
+                if (value != null)
+                  {
+                    Get.snackbar(
+                      'Acesso realizado!',
+                      'Login realizado com sucesso!',
+                      backgroundColor: Colors.green,
+                      colorText: Colors.white,
+                    ),
+                    Get.toNamed(Routes.dashboard)
+                  }
+                else
+                  {
+                    Get.snackbar(
+                      'Erro!',
+                      'Email ou senha inválidos.',
+                      backgroundColor: Colors.red,
+                      colorText: Colors.white,
+                    )
+                  }
+              });
     } else {
       showDialog(
         context: context,
