@@ -19,45 +19,47 @@ class SecondForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          const CustomStatusbar(nivel: 30),
-          SimpleAppBar(
-            customOnpressed: () {
-              controller.registerPageEtapa--;
-            },
-          ),
-          Expanded(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const CustomTitlePrimary(text: 'Você está quase lá!'),
-                    const CustomSubtitlePrimary(
-                      text:
-                          'Adicione suas informações para\ncompletar o seu registro.',
-                    ),
-                    const SizedBox(height: 20),
-                    CustomFormTextfield(
-                      text: 'CPF ou CNPJ',
-                      icon: Icons.badge,
-                    ),
-                    const SizedBox(height: 20),
-                    CustomFormTextfield(text: 'CEP', icon: Icons.place),
-                    const SizedBox(height: 20),
-                    CustomFormTextfield(
-                      text: 'Endereço',
-                      icon: Icons.location_city,
-                    ),
-                  ],
+    return Obx(
+      () => Scaffold(
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const CustomStatusbar(nivel: 30),
+              SimpleAppBar(
+                customOnpressed: () {
+                  controller.registerPageEtapa--;
+                },
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height *
+                    0.6,
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const CustomTitlePrimary(text: 'Você está quase lá!'),
+                      const CustomSubtitlePrimary(
+                        text:
+                            'Adicione suas informações para\ncompletar o seu registro.',
+                      ),
+                      const SizedBox(height: 20),
+                      CustomFormTextfield(
+                        text: 'CPF ou CNPJ',
+                        icon: Icons.badge,
+                      ),
+                      const SizedBox(height: 20),
+                      CustomFormTextfield(text: 'CEP', icon: Icons.place),
+                      const SizedBox(height: 20),
+                      CustomFormTextfield(
+                        text: 'Endereço',
+                        icon: Icons.location_city,
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-          ),
-          Obx(() => Center(
+              Center(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -96,30 +98,31 @@ class SecondForm extends StatelessWidget {
                     ),
                   ],
                 ),
-              )),
-          const SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: CustomButton(
-              onPressed: () {
-                if (_isChecked.value) {
-                  controller.registerPageEtapa++;
-                } else {
-                  Get.snackbar(
-                    "Atenção",
-                    "Você deve concordar com a Política de Privacidade e os Termos de Uso.",
-                    snackPosition: SnackPosition.TOP,
-                  );
-                }
-              },
-              text: 'Registrar',
-              colorButton: ColorsTheme.primary,
-              colorBackground: true,
-              buttonEnum: CustomButtonEnum.secondary,
-            ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: CustomButton(
+                  onPressed: () {
+                    if (_isChecked.value) {
+                      controller.registerPageEtapa++;
+                    } else {
+                      Get.snackbar(
+                        "Atenção",
+                        "Você deve concordar com a Política de Privacidade e os Termos de Uso.",
+                        snackPosition: SnackPosition.TOP,
+                      );
+                    }
+                  },
+                  colorBackground: true,
+                  text: 'Registrar',
+                  buttonEnum: _isChecked.value ? CustomButtonEnum.primary : CustomButtonEnum.disabled,
+                ),
+              ),
+              const SizedBox(height: 20),
+            ],
           ),
-          const SizedBox(height: 20),
-        ],
+        ),
       ),
     );
   }
