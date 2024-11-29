@@ -3,9 +3,11 @@
 import 'package:busca_preco/core/pages/errors/404/error_404.dart';
 import 'package:busca_preco/core/pages/register/forms/first_form.dart';
 import 'package:busca_preco/core/pages/register/forms/second_form.dart';
+import 'package:busca_preco/core/pages/register/forms/third_form.dart';
 import 'package:busca_preco/core/pages/register/register_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
@@ -17,13 +19,11 @@ class RegisterPage extends StatelessWidget {
     return Scaffold(
       body: Obx(() {
         if (controller.registerPageEtapa == 0) {
-          return Scaffold(
-            body: FirstForm(),
-          );
+          return FirstForm();
         } else if (controller.registerPageEtapa == 1) {
-          return Scaffold(
-            body: SecondForm(),
-          );
+          return SecondForm();
+        } else if (controller.registerPageEtapa == 2) {
+          return ThirdForm();
         } else {
           controller.goToRegisterPageEtapa(0);
           return const Scaffold(body: Error404());

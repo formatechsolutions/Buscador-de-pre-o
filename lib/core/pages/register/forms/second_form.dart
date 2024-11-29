@@ -115,7 +115,7 @@ class SecondForm extends StatelessWidget {
                     }
                   },
                   colorBackground: true,
-                  text: 'Registrar',
+                  text: 'Avançar',
                   buttonEnum: _isChecked.value ? CustomButtonEnum.primary : CustomButtonEnum.disabled,
                 ),
               ),
