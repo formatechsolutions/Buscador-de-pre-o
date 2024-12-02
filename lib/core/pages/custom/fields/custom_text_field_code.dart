@@ -43,7 +43,7 @@ class CustomTextFieldCode extends StatelessWidget {
             FocusScope.of(context).requestFocus(focusNodes[index - 1]);
           }
         }
-        print(codes.value);
+        debugPrint(codes.value as String?);
       },
     );
   }

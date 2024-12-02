@@ -7,7 +7,6 @@ import 'package:busca_preco/core/pages/register/forms/third_form.dart';
 import 'package:busca_preco/core/pages/register/register_controller.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
