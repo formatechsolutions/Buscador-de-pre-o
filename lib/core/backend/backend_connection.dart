@@ -1,8 +1,10 @@
 import 'dart:convert';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 
 class BackendConnection {
-  final String backendUrl = 'https://8c62-179-49-254-150.ngrok-free.app/api';
+  final String backendUrl = 'https://c67f-179-49-254-164.ngrok-free.app/api';
   final String backendUrlRender = 'https://buscapreco-backend.onrender.com/api';
 
   Future<http.Response?> _tryRequest(
@@ -53,6 +55,12 @@ class BackendConnection {
     final response =
         await post('/login', {'email': email, 'password': password});
     if (response != null && response.statusCode == 200) {
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+      await prefs.setString('user', response.body);
+
+      debugPrint(prefs.getString('user'));
+
       return response.body;
     } else {
       return null;
