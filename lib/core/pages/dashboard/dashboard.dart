@@ -1,3 +1,4 @@
+import 'package:busca_preco/core/pages/navigation/navigation_bar.dart';
 import 'package:flutter/material.dart';
 
 class Dashboard extends StatelessWidget implements PreferredSizeWidget {
@@ -55,19 +56,17 @@ class Dashboard extends StatelessWidget implements PreferredSizeWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: IconButton(
-                    icon: Icon(Icons.filter_list, color: Colors.white),
-                    onPressed: () {
-                      // Ação para o botão azul
-                    },
+                    icon: Icon(Icons.filter, color: Colors.white),
+                    onPressed: () {},
                   ),
                 ),
               ],
             ),
             const SizedBox(height: 20),
-           
           ],
         ),
       ),
+      bottomNavigationBar: CustomNavigationBar(),
     );
   }
 }
