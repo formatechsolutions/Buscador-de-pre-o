@@ -14,7 +14,7 @@ import 'package:get/get.dart';
 class FirstForm extends StatelessWidget {
   FirstForm({super.key});
 
-  final RegisterPageController controller = Get.put(RegisterPageController());
+  final RegisterPageController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -46,14 +46,20 @@ class FirstForm extends StatelessWidget {
                   CustomFormTextfield(
                     text: 'Nome Completo',
                     icon: Icons.person,
+                    controller: controller.nameController,
                   ),
                   const SizedBox(height: 20),
-                  CustomFormTextfield(text: 'Email', icon: Icons.email),
+                  CustomFormTextfield(
+                    text: 'Email',
+                    icon: Icons.email,
+                    controller: controller.emailController,
+                  ),
                   const SizedBox(height: 20),
                   CustomFormTextfield(
                     text: 'Senha',
                     icon: Icons.lock,
                     isPassword: true,
+                    controller: controller.passwordController,
                   ),
                   const SizedBox(height: 20),
                   Row(
@@ -63,6 +69,7 @@ class FirstForm extends StatelessWidget {
                         width: 100,
                         centerText: true,
                         type: CustomFormTextfieldEnum.number,
+                        controller: controller.dddController,
                       ),
                       const SizedBox(width: 16),
                       Expanded(
@@ -70,6 +77,7 @@ class FirstForm extends StatelessWidget {
                           text: 'Telefone',
                           icon: Icons.phone,
                           type: CustomFormTextfieldEnum.number,
+                          controller: controller.phoneController,
                         ),
                       ),
                     ],
@@ -83,7 +91,8 @@ class FirstForm extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: CustomButton(
             onPressed: () {
-              controller.registerPageEtapa++;
+              controller.goToRegisterPageEtapa(
+                  controller.registerPageEtapa.value + 1, context);
             },
             text: 'Avançar',
             colorButton: ColorsTheme.primary,

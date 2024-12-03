@@ -12,7 +12,7 @@ import 'package:get/get.dart';
 class ThirdForm extends StatelessWidget {
   ThirdForm({super.key});
 
-  final RegisterPageController controller = Get.find<RegisterPageController>();
+  final RegisterPageController controller = Get.find();
 
   final RxInt codes = 0.obs;
 

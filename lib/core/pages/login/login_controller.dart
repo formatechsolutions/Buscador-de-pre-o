@@ -3,7 +3,7 @@ import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class LoginController {
+class LoginController extends GetxController {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final BackendConnection backendConnection = BackendConnection();

@@ -13,7 +13,7 @@ import 'package:get/get.dart';
 class SecondForm extends StatelessWidget {
   SecondForm({super.key});
 
-  final RegisterPageController controller = Get.put(RegisterPageController());
+  final RegisterPageController controller = Get.find();
   final RxBool _isChecked = false.obs;
 
   @override

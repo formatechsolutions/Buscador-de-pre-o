@@ -11,7 +11,7 @@ import 'package:flutter/material.dart';
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
 
-  final RegisterPageController controller = Get.put(RegisterPageController());
+  final RegisterPageController controller = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class RegisterPage extends StatelessWidget {
         } else if (controller.registerPageEtapa == 2) {
           return ThirdForm();
         } else {
-          controller.goToRegisterPageEtapa(0);
+          controller.goToRegisterPageEtapa(0, context);
           return const Scaffold(body: Error404());
         }
       }),
