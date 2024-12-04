@@ -34,9 +34,9 @@ class RegisterPageController extends GetxController {
   void goToRegisterPageEtapa(int etapa, BuildContext context) {
     if (!EmailValidator.validate(emailController.text)) {
       Get.dialog(
-        const CustomNotificationError(
+        CustomNotificationError(
           title: "Erro",
-          message: "Por favor, preencha todos os campos.",
+          message: "Por favor, insira um e-mail válido.",
         ),
       );
     } else {
@@ -44,7 +44,7 @@ class RegisterPageController extends GetxController {
         registerPageEtapa.value = etapa;
       } else {
         Get.dialog(
-          const CustomNotificationError(
+          CustomNotificationError(
             title: "Erro",
             message: "Por favor, preencha todos os campos.",
           ),
