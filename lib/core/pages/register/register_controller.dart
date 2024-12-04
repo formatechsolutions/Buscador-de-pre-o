@@ -1,3 +1,4 @@
+import 'package:busca_preco/core/pages/custom/notification/custom_notification_error.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -32,34 +33,20 @@ class RegisterPageController extends GetxController {
 
   void goToRegisterPageEtapa(int etapa, BuildContext context) {
     if (!EmailValidator.validate(emailController.text)) {
-      showDialog(
-        context: context,
-        builder: (context) => AlertDialog(
-          title: const Text("Erro"),
-          content: const Text("Email incorreto."),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: const Text("OK"),
-            ),
-          ],
+      Get.dialog(
+        const CustomNotificationError(
+          title: "Erro",
+          message: "Por favor, preencha todos os campos.",
         ),
       );
     } else {
       if (validateFields(etapa)) {
         registerPageEtapa.value = etapa;
       } else {
-        showDialog(
-          context: context,
-          builder: (context) => AlertDialog(
-            title: const Text("Erro"),
-            content: const Text("Por favor, preencha todos os campos."),
-            actions: [
-              TextButton(
-                onPressed: () => Navigator.pop(context),
-                child: const Text("OK"),
-              ),
-            ],
+        Get.dialog(
+          const CustomNotificationError(
+            title: "Erro",
+            message: "Por favor, preencha todos os campos.",
           ),
         );
       }
