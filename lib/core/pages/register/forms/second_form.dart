@@ -30,8 +30,7 @@ class SecondForm extends StatelessWidget {
                 },
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height *
-                    0.6,
+                height: MediaQuery.of(context).size.height * 0.6,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: Column(
@@ -46,13 +45,19 @@ class SecondForm extends StatelessWidget {
                       CustomFormTextfield(
                         text: 'CPF ou CNPJ',
                         icon: Icons.badge,
+                        controller: controller.cpfController,
                       ),
                       const SizedBox(height: 20),
-                      CustomFormTextfield(text: 'CEP', icon: Icons.place),
+                      CustomFormTextfield(
+                        text: 'CEP',
+                        icon: Icons.place,
+                        controller: controller.cepController,
+                      ),
                       const SizedBox(height: 20),
                       CustomFormTextfield(
                         text: 'Endereço',
                         icon: Icons.location_city,
+                        controller: controller.addressController,
                       ),
                     ],
                   ),
@@ -104,7 +109,7 @@ class SecondForm extends StatelessWidget {
                 child: CustomButton(
                   onPressed: () {
                     if (_isChecked.value) {
-                      controller.registerPageEtapa++;
+                      controller.goToRegisterPageEtapa(2, context);
                     } else {
                       Get.snackbar(
                         "Atenção",
@@ -115,7 +120,9 @@ class SecondForm extends StatelessWidget {
                   },
                   colorBackground: true,
                   text: 'Avançar',
-                  buttonEnum: _isChecked.value ? CustomButtonEnum.primary : CustomButtonEnum.disabled,
+                  buttonEnum: _isChecked.value
+                      ? CustomButtonEnum.primary
+                      : CustomButtonEnum.disabled,
                 ),
               ),
               const SizedBox(height: 20),
