@@ -43,12 +43,14 @@ class SecondForm extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       CustomFormTextfield(
+                        type: CustomFormTextfieldEnum.number,
                         text: 'CPF ou CNPJ',
                         icon: Icons.badge,
                         controller: controller.cpfController,
                       ),
                       const SizedBox(height: 20),
                       CustomFormTextfield(
+                        type: CustomFormTextfieldEnum.number,
                         text: 'CEP',
                         icon: Icons.place,
                         controller: controller.cepController,

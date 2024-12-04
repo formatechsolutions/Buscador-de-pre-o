@@ -2,6 +2,7 @@ import 'package:busca_preco/core/pages/custom/appBar/simpleAppBar/simple_app_bar
 import 'package:busca_preco/core/pages/custom/button/custom_button.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:busca_preco/core/pages/custom/fields/custom_text_field_code.dart';
+import 'package:busca_preco/core/pages/custom/notification/custom_notification.dart';
 import 'package:busca_preco/core/pages/custom/statusbar/custom_statusbar.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_subtitle_primary.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_title_primary.dart';
@@ -98,10 +99,11 @@ class ThirdForm extends StatelessWidget {
                           if (codes.value == 5) {
                             controller.registerPageEtapa++;
                           } else {
-                            Get.snackbar(
-                              "Atenção",
-                              "Você deve adicionar todos os códigos",
-                              snackPosition: SnackPosition.TOP,
+                            Get.dialog(
+                              CustomNotification(
+                                type: CustomNotificationEnum.error,
+                                message: "Você deve adicionar todos os códigos",
+                              ),
                             );
                           }
                         },

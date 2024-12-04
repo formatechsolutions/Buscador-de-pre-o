@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
 
-class CustomNotificationError extends StatelessWidget {
-  final String message;
-  final String title;
+enum CustomNotificationEnum {
+  error,
+  success,
+}
 
-  const CustomNotificationError({
+class CustomNotification extends StatelessWidget {
+  final CustomNotificationEnum type;
+  final String message;
+
+  const CustomNotification({
     super.key,
+    required this.type,
     required this.message,
-    required this.title,
   });
 
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text(title),
+      title: Text(type == CustomNotificationEnum.error ? "Erro" : "Sucesso"),
       content: Text(message),
       actions: [
         TextButton(
