@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 enum CustomNotificationEnum {
   error,
@@ -17,15 +18,20 @@ class CustomNotification extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AlertDialog(
-      title: Text(type == CustomNotificationEnum.error ? "Erro" : "Sucesso"),
-      content: Text(message),
-      actions: [
-        TextButton(
-          onPressed: () => Navigator.pop(context),
-          child: const Text("OK"),
-        ),
-      ],
-    );
+    Future.delayed(Duration.zero, () {
+      Get.snackbar(
+        type == CustomNotificationEnum.error ? "Erro" : "Sucesso",
+        message,
+        snackPosition: SnackPosition.TOP,
+        backgroundColor: type == CustomNotificationEnum.error ? Colors.red : Colors.green,
+        colorText: Colors.white,
+        duration: const Duration(seconds: 3),
+        margin: const EdgeInsets.all(10),
+        borderRadius: 8, 
+        snackStyle: SnackStyle.GROUNDED,
+      );
+    });
+
+    return SizedBox.shrink();
   }
 }

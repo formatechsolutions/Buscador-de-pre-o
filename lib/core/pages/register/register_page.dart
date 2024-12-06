@@ -17,14 +17,13 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() {
-        if (controller.registerPageEtapa == 0) {
+        if (controller.registerPageEtapa == 1) {
           return FirstForm();
-        } else if (controller.registerPageEtapa == 1) {
-          return SecondForm();
         } else if (controller.registerPageEtapa == 2) {
+          return SecondForm();
+        } else if (controller.registerPageEtapa == 3) {
           return ThirdForm();
         } else {
-          controller.goToRegisterPageEtapa(0, context);
           return const Scaffold(body: Error404());
         }
       }),

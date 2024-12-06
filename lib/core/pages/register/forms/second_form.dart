@@ -3,10 +3,12 @@
 import 'package:busca_preco/core/pages/custom/appBar/simpleAppBar/simple_app_bar.dart';
 import 'package:busca_preco/core/pages/custom/button/custom_button.dart';
 import 'package:busca_preco/core/pages/custom/fields/custom_form_textfield.dart';
+import 'package:busca_preco/core/pages/custom/notification/custom_notification.dart';
 import 'package:busca_preco/core/pages/custom/statusbar/custom_statusbar.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_subtitle_primary.dart';
 import 'package:busca_preco/core/pages/custom/text/custom_title_primary.dart';
 import 'package:busca_preco/core/pages/register/register_controller.dart';
+import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -110,14 +112,34 @@ class SecondForm extends StatelessWidget {
                 padding: const EdgeInsets.all(16.0),
                 child: CustomButton(
                   onPressed: () {
-                    if (_isChecked.value) {
-                      controller.goToRegisterPageEtapa(2, context);
-                    } else {
-                      Get.snackbar(
-                        "Atenção",
-                        "Você deve concordar com a Política de Privacidade e os Termos de Uso.",
-                        snackPosition: SnackPosition.TOP,
+                    if (!EmailValidator.validate(
+                        controller.emailController.text)) {
+                      Get.dialog(
+                        CustomNotification(
+                          type: CustomNotificationEnum.error,
+                          message: "Por favor, insira um e-mail válido.",
+                        ),
                       );
+                      return;
+                    } else if (!controller
+                        .validateFields(controller.registerPageEtapa.value)) {
+                      Get.dialog(
+                        CustomNotification(
+                          type: CustomNotificationEnum.error,
+                          message: "Por favor, preencha todos os campos.",
+                        ),
+                      );
+                      return;
+                    } else {
+                      if (_isChecked.value) {
+                        controller.goToNextRegisterPageEtapa();
+                      } else {
+                        Get.snackbar(
+                          "Atenção",
+                          "Você deve concordar com a Política de Privacidade e os Termos de Uso.",
+                          snackPosition: SnackPosition.TOP,
+                        );
+                      }
                     }
                   },
                   colorBackground: true,

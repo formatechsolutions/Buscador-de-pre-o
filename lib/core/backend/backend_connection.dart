@@ -4,19 +4,30 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BackendConnection {
-  final String backendUrl = 'https://7c64-179-49-254-164.ngrok-free.app/api';
+  final String backendUrl = 'https://5564-179-49-254-164.ngrok-free.app/api';
   final String backendUrlRender = 'https://buscapreco-backend.onrender.com/api';
 
   Future<http.Response?> _tryRequest(
       Future<http.Response> Function(String url) request, String url) async {
     try {
-      return await request(backendUrl + url);
+      return await request(backendUrl);
     } catch (e) {
       try {
-        return await request(backendUrlRender + url);
+        return await request(backendUrlRender);
       } catch (e) {
         return null;
       }
+    }
+  }
+
+  Future<int?> generateTokenRegister(String email) async {
+    final response = await post('/check-code', {'email': email});
+
+    if (response != null && response.statusCode == 200) {
+      final code = jsonDecode(response.body)['code'] as int;
+      return code;
+    } else {
+      return null;
     }
   }
 
@@ -34,7 +45,7 @@ class BackendConnection {
   Future<http.Response?> post(String url, Map<String, dynamic> body) {
     return _tryRequest((baseUrl) async {
       return http.post(
-        Uri.parse(baseUrl),
+        Uri.parse(baseUrl + url),
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode(body),
       );

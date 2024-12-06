@@ -15,7 +15,6 @@ class LoginController extends GetxController {
 
   Future<void> login(BuildContext context) async {
     if (validateFields()) {
-
       backendConnection
           .login(emailController.text, passwordController.text)
           .then((value) => {
