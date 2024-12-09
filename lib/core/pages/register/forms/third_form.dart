@@ -99,12 +99,10 @@ class ThirdForm extends StatelessWidget {
                           if (codes.value == 5) {
                             controller.registerPageEtapa++;
                           } else {
-                            Get.dialog(
-                              CustomNotification(
+                              showCustomNotification(
                                 type: CustomNotificationEnum.error,
                                 message: "Você deve adicionar todos os códigos",
-                              ),
-                            );
+                              );
                           }
                         },
                         colorBackground: true,

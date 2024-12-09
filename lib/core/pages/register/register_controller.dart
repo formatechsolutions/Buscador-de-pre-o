@@ -1,4 +1,5 @@
 import 'package:busca_preco/core/backend/backend_connection.dart';
+import 'package:busca_preco/core/pages/custom/notification/custom_notification.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +22,6 @@ class RegisterPageController extends GetxController {
   late int codeRegister = 0;
 
   bool validateFields(int etapa) {
-    debugPrint(etapa.toString());
     if (etapa == 1) {
       var bool = nameController.text.isNotEmpty &&
           emailController.text.isNotEmpty &&
@@ -46,48 +46,21 @@ class RegisterPageController extends GetxController {
           numberCodeController.text.isNotEmpty;
 
       if (bool) {
-        debugPrint('numberCodeController:');
-        debugPrint(numberCodeController.text);
         if (numberCodeController.text == codeRegister.toString()) {
-          Get.snackbar(
-            "Sucesso",
-            'Conta registrada com sucesso!',
-            snackPosition: SnackPosition.TOP,
-            backgroundColor: Colors.green,
-            colorText: Colors.white,
-            duration: const Duration(seconds: 3),
-            margin: const EdgeInsets.all(10),
-            borderRadius: 8,
-            snackStyle: SnackStyle.GROUNDED,
-          );
+          showCustomNotification(
+              message: "Conta registrada com sucesso!",
+              type: CustomNotificationEnum.success);
+
           return true;
         } else {
-          Get.snackbar(
-            "Erro",
-            'Código inválido!',
-            snackPosition: SnackPosition.TOP,
-            backgroundColor: Colors.red,
-            colorText: Colors.white,
-            duration: const Duration(seconds: 3),
-            margin: const EdgeInsets.all(10),
-            borderRadius: 8,
-            snackStyle: SnackStyle.GROUNDED,
-          );
+          showCustomNotification(
+              message: "Código inválido!", type: CustomNotificationEnum.error);
 
           return false;
         }
       } else {
-        Get.snackbar(
-          "Erro",
-          'Ocorreu um erro!',
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-          duration: const Duration(seconds: 3),
-          margin: const EdgeInsets.all(10),
-          borderRadius: 8,
-          snackStyle: SnackStyle.GROUNDED,
-        );
+        showCustomNotification(
+            message: "Ocorreu um erro!", type: CustomNotificationEnum.error);
 
         return false;
       }
@@ -120,29 +93,13 @@ class RegisterPageController extends GetxController {
       if (codeResponse != null) {
         codeRegister = codeResponse;
 
-        Get.snackbar(
-          "Sucesso",
-          'Código enviado com sucesso!',
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.green,
-          colorText: Colors.white,
-          duration: const Duration(seconds: 3),
-          margin: const EdgeInsets.all(10),
-          borderRadius: 8,
-          snackStyle: SnackStyle.GROUNDED,
-        );
+        showCustomNotification(
+            message: "Código enviado com sucesso!",
+            type: CustomNotificationEnum.success);
       } else {
-        Get.snackbar(
-          "Erro",
-          'Falha ao gerar código.',
-          snackPosition: SnackPosition.TOP,
-          backgroundColor: Colors.red,
-          colorText: Colors.white,
-          duration: const Duration(seconds: 3),
-          margin: const EdgeInsets.all(10),
-          borderRadius: 8,
-          snackStyle: SnackStyle.GROUNDED,
-        );
+        showCustomNotification(
+            message: "Falha ao gerar código",
+            type: CustomNotificationEnum.error);
       }
     }
   }

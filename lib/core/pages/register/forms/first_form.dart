@@ -94,20 +94,16 @@ class FirstForm extends StatelessWidget {
           child: CustomButton(
             onPressed: () {
               if (!EmailValidator.validate(controller.emailController.text)) {
-                Get.dialog(
-                  CustomNotification(
-                    type: CustomNotificationEnum.error,
-                    message: "Por favor, insira um e-mail válido.",
-                  ),
+                showCustomNotification(
+                  type: CustomNotificationEnum.error,
+                  message: "Por favor, insira um e-mail válido.",
                 );
                 return;
               } else if (!controller
                   .validateFields(controller.registerPageEtapa.value)) {
-                Get.dialog(
-                  CustomNotification(
-                    type: CustomNotificationEnum.error,
-                    message: "Por favor, preencha todos os campos.",
-                  ),
+                showCustomNotification(
+                  type: CustomNotificationEnum.error,
+                  message: "Por favor, preencha todos os campos.",
                 );
                 return;
               } else {

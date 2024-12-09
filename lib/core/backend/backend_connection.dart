@@ -70,8 +70,6 @@ class BackendConnection {
 
       await prefs.setString('user', response.body);
 
-      debugPrint(prefs.getString('user'));
-
       return response.body;
     } else {
       return null;

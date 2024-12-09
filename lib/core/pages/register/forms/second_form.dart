@@ -114,31 +114,24 @@ class SecondForm extends StatelessWidget {
                   onPressed: () {
                     if (!EmailValidator.validate(
                         controller.emailController.text)) {
-                      Get.dialog(
-                        CustomNotification(
+                      showCustomNotification(
                           type: CustomNotificationEnum.error,
-                          message: "Por favor, insira um e-mail válido.",
-                        ),
-                      );
+                          message: "Por favor, insira um e-mail válido.");
                       return;
                     } else if (!controller
                         .validateFields(controller.registerPageEtapa.value)) {
-                      Get.dialog(
-                        CustomNotification(
+                      showCustomNotification(
                           type: CustomNotificationEnum.error,
-                          message: "Por favor, preencha todos os campos.",
-                        ),
-                      );
+                          message: "Por favor, preencha todos os campos.");
                       return;
                     } else {
                       if (_isChecked.value) {
                         controller.goToNextRegisterPageEtapa();
                       } else {
-                        Get.snackbar(
-                          "Atenção",
-                          "Você deve concordar com a Política de Privacidade e os Termos de Uso.",
-                          snackPosition: SnackPosition.TOP,
-                        );
+                        showCustomNotification(
+                            type: CustomNotificationEnum.error,
+                            message:
+                                "Você deve aceitar os termos de uso e privacidade.");
                       }
                     }
                   },
