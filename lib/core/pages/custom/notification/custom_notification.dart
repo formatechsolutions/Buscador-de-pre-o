@@ -25,10 +25,9 @@ class CustomNotification extends StatelessWidget {
         snackPosition: SnackPosition.TOP,
         backgroundColor: type == CustomNotificationEnum.error ? Colors.red : Colors.green,
         colorText: Colors.white,
-        duration: const Duration(seconds: 3),
+        duration: const Duration(seconds: 2),
         margin: const EdgeInsets.all(10),
-        borderRadius: 8, 
-        snackStyle: SnackStyle.GROUNDED,
+        borderRadius: 8,
       );
     });
 

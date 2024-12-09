@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 class RegisterPageController extends GetxController {
   var registerPageEtapa = 1.obs;
+  PageController? _pageController;
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -93,6 +94,20 @@ class RegisterPageController extends GetxController {
     } else {
       return false;
     }
+  }
+
+  void setPageController(PageController pageController) {
+    _pageController = pageController;
+
+    ever<int>(registerPageEtapa, (etapa) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        _pageController?.animateToPage(
+          etapa - 1,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      });
+    });
   }
 
   void goToNextRegisterPageEtapa() async {

@@ -4,7 +4,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class BackendConnection {
-  final String backendUrl = 'https://5564-179-49-254-164.ngrok-free.app/api';
+  final String backendUrl = 'https://8eb5-179-49-254-164.ngrok-free.app/api';
   final String backendUrlRender = 'https://buscapreco-backend.onrender.com/api';
 
   Future<http.Response?> _tryRequest(
