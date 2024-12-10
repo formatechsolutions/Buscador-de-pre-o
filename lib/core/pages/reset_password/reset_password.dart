@@ -18,7 +18,7 @@ class ResetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: SimpleAppBar(
-        customOnpressed: () => Get.toNamed(Routes.home),
+        customOnpressed: () => Get.toNamed(Routes.index),
       ),
       body: Column(
         children: [

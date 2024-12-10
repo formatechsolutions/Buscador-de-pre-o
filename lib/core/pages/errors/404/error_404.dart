@@ -46,7 +46,7 @@ class Error404 extends StatelessWidget {
               const SizedBox(height: 30),
               ElevatedButton(
                 onPressed: () {
-                  Get.toNamed(Routes.home);
+                  Get.toNamed(Routes.index);
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.redAccent,
