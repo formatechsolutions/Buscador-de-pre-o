@@ -1,9 +1,22 @@
 import 'package:barcode_scan2/barcode_scan2.dart';
 import 'package:flutter/material.dart';
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class AddProductPageScreen extends StatelessWidget {
   const AddProductPageScreen({Key? key}) : super(key: key);
+
+  Future<void> _checkCameraPermission(BuildContext context) async {
+    final permission = Permission.camera;
+
+    if (await permission.isDenied) {
+      await permission.request();
+    } else if (await permission.isPermanentlyDenied) {
+      await openAppSettings();
+    } else if (await permission.isGranted) {
+      await _scanBarcode(context);
+    }
+  }
 
   Future<void> _scanBarcode(BuildContext context) async {
     try {
@@ -42,7 +55,7 @@ class AddProductPageScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             GestureDetector(
-              onTap: () => _scanBarcode(context),
+              onTap: () => _checkCameraPermission(context),
               child: Container(
                 height: 150,
                 width: double.maxFinite,
