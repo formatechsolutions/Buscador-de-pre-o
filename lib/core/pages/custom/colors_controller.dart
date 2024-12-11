@@ -10,6 +10,7 @@ class ColorController extends GetxController {
 }
 
 class ColorsTheme {
+  static const Color backgroundApp = Color.fromARGB(255, 233, 230, 230);
   static const Color backgroundWhite = Color(0xFFFFFFFF);
   static const Color backgroundBlack = Color.fromARGB(255, 0, 0, 0);
   static const Color primary = Color(0xFF304FFE);

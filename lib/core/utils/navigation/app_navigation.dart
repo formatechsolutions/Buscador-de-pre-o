@@ -30,8 +30,9 @@ class AppNavigation extends StatelessWidget {
           },
           items: const [
             BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Início'),
-            BottomNavigationBarItem(icon: Icon(Icons.category), label: 'Categorias'),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: 'Carrinho'),
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: 'Adicionar'),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.settings), label: 'Configurações'),
           ],
           selectedFontSize: 14.0,
           unselectedFontSize: 12.0,

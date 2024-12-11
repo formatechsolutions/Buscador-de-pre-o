@@ -1,3 +1,6 @@
+import 'package:busca_preco/core/pages/home/screens/add_page_screen.dart';
+import 'package:busca_preco/core/pages/home/screens/config_page_screen.dart';
+import 'package:busca_preco/core/pages/home/screens/home_page_screen.dart';
 import 'package:busca_preco/core/utils/navigation/app_navigation.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +17,14 @@ class HomePage extends StatelessWidget {
         children: [
           PageView(
             controller: _pageController,
+            physics: const NeverScrollableScrollPhysics(),
             onPageChanged: (index) {
               _selectedIndex.value = index;
             },
             children: [
-              _buildPage('Página 1', Colors.blue),
-              _buildPage('Página 2', Colors.green),
-              _buildPage('Página 3', Colors.orange),
+              HomePageScreen(),
+              AddPageScreen(),
+              ConfigPageScreen(),
             ],
           ),
           Positioned(
