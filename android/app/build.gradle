@@ -28,15 +28,24 @@ android {
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
+        namespace = "com.example.buscapreco"
     }
 
-    buildTypes {
-        release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
-            signingConfig = signingConfigs.debug
-        }
+   buildTypes {
+    release {
+        signingConfig = signingConfigs.debug
+        minifyEnabled false
+        shrinkResources false
     }
+}
+
+}
+
+dependencies {
+    implementation 'com.google.code.findbugs:jsr305:3.0.2' // Para javax.annotation.*
+    implementation 'com.google.errorprone:error_prone_annotations:2.11.0' // Para errorprone.*
+    implementation platform('com.google.firebase:firebase-bom:32.0.0') // Caso esteja usando Firebase
+    implementation 'androidx.core:core-ktx:1.10.1' // Atualização para dependências do AndroidX, se necessário
 }
 
 flutter {

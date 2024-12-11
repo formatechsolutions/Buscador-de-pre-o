@@ -1,4 +1,4 @@
-import 'package:busca_preco/core/pages/home/screens/add_page_screen.dart';
+import 'package:busca_preco/core/pages/home/screens/add_product_page_screen.dart';
 import 'package:busca_preco/core/pages/home/screens/config_page_screen.dart';
 import 'package:busca_preco/core/pages/home/screens/home_page_screen.dart';
 import 'package:busca_preco/core/utils/navigation/app_navigation.dart';
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
             },
             children: [
               HomePageScreen(),
-              AddPageScreen(),
+              AddProductPageScreen(),
               ConfigPageScreen(),
             ],
           ),
