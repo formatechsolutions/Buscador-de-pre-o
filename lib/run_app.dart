@@ -11,7 +11,7 @@ class RunApp {
     WidgetsFlutterBinding.ensureInitialized();
     final SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    final String? userToken = prefs.getString('userToken');
+    final String? userToken = prefs.getString('user');
 
     return runZonedGuarded(() async {
       WidgetsFlutterBinding.ensureInitialized();
