@@ -1,5 +1,6 @@
+
 import 'run_app.dart';
 
-void main() {
+void main() async {
   RunApp.run();
 }

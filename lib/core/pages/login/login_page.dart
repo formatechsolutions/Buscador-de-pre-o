@@ -6,7 +6,7 @@ import '../custom/colors_controller.dart';
 import '../custom/fields/custom_form_textfield.dart';
 import '../custom/text/custom_subtitle_primary.dart';
 import '../custom/text/custom_title_primary.dart';
-import 'login_controller.dart';
+import 'controllers/login_controller.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});
