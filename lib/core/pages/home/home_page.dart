@@ -48,16 +48,4 @@ class HomePage extends StatelessWidget {
       ),
     );
   }
-
-  Widget _buildPage(String title, Color color) {
-    return Container(
-      color: color,
-      child: Center(
-        child: Text(
-          title,
-          style: const TextStyle(fontSize: 32, color: Colors.white),
-        ),
-      ),
-    );
-  }
 }

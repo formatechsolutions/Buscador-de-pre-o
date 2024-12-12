@@ -4,7 +4,7 @@ import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class AddProductPageScreen extends StatelessWidget {
-  const AddProductPageScreen({Key? key}) : super(key: key);
+  const AddProductPageScreen({super.key});
 
   Future<void> _checkCameraPermission(BuildContext context) async {
     final permission = Permission.camera;

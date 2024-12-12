@@ -1,9 +1,13 @@
 import 'package:busca_preco/core/pages/custom/colors_controller.dart';
-import 'package:busca_preco/core/pages/custom/text/custom_categories_title.dart';
+import 'package:busca_preco/core/pages/home/screens/components/label_buttons.dart';
+import 'package:busca_preco/core/pages/home/screens/controllers/config_page_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class ConfigPageScreen extends StatelessWidget {
-  const ConfigPageScreen({super.key});
+  ConfigPageScreen({super.key});
+
+  final ConfigPageController _controller = Get.put(ConfigPageController());
 
   @override
   Widget build(BuildContext context) {
@@ -17,71 +21,21 @@ class ConfigPageScreen extends StatelessWidget {
             Text(
               'Configurações',
               style: const TextStyle(
-                fontSize: 34,
+                fontSize: 28,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 20),
-            Container(
-              height: 150,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: ColorsTheme.textGrey,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Row(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(12),
-                      child: Image.network(
-                        'https://via.placeholder.com/80',
-                        width: 80,
-                        height: 80,
-                        fit: BoxFit.contain,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 16),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Supermercado Moreira',
-                          style: TextStyle(
-                            color: ColorsTheme.backgroundApp,
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          'O melhor lugar para suas compras!',
-                          style: TextStyle(
-                            color: ColorsTheme.backgroundApp,
-                            fontSize: 14,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+            const SizedBox(height: 34),
+            Column(
+              children: [
+                LabelButtons(type: TypeButtonLabel.primary, title: 'Conta', prefixIcon: Icons.person, suffixIcon: Icons.arrow_forward_ios_rounded),
+                const SizedBox(height: 20),
+                LabelButtons(type: TypeButtonLabel.primary, title: 'Notificações', prefixIcon: Icons.notifications, suffixIcon: Icons.arrow_forward_ios_rounded),
+                const SizedBox(height: 20),
+                LabelButtons(type: TypeButtonLabel.logout, title: 'Sair', prefixIcon: Icons.logout, suffixIcon: Icons.arrow_forward_ios_rounded, onTap: () => _controller.logout()),
+              ],
             ),
             const SizedBox(height: 20),
-            CustomCategoriesTitle(title: 'Ajustes'),
-            const SizedBox(height: 20),
-            Container(
-              height: 350,
-              width: double.maxFinite,
-              decoration: BoxDecoration(
-                color: ColorsTheme.buttonGrey,
-                borderRadius: BorderRadius.circular(12),
-              ),
-            ),
           ],
         ),
       ),
