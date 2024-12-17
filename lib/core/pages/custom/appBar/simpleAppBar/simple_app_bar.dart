@@ -19,7 +19,7 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: IconButton(
           icon: const Icon(Icons.arrow_back),
           color: ColorsTheme.textBlack,
-          onPressed: () => customOnpressed != null ? customOnpressed!() : Get.back(),
+          onPressed: customOnpressed ?? () => Get.back(),
         ),
       ),
     );

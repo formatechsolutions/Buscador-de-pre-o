@@ -31,7 +31,7 @@ class IndexPage extends StatelessWidget {
           return Scaffold(
             body: Obx(() {
               if (isFinalizedPagesHome.value == 'true') {
-                return _buildRegisterPage();
+                return _buildRegisterPage(context);
               } else {
                 return AnnouncementComponent(
                   currentPage: currentPage,
@@ -50,19 +50,22 @@ class IndexPage extends StatelessWidget {
     );
   }
 
-  Widget _buildRegisterPage() {
-    return Container(
-      color: ColorController().backgroundColor.value,
+  Widget _buildRegisterPage(context) {
+    var size = MediaQuery.of(context).size;
+
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const SizedBox(height: 16),
-          const Image(
-            image: AssetImage('assets/images/registerPage.png'),
+          Image(
+            image: const AssetImage('assets/images/registerPage.png'),
             repeat: ImageRepeat.noRepeat,
             filterQuality: FilterQuality.high,
             alignment: Alignment.center,
+            width: size.width * 0.8,
           ),
           const SizedBox(height: 8),
           const Text(
@@ -78,14 +81,13 @@ class IndexPage extends StatelessWidget {
           const Text(
             "Tenha acesso a várias funcionalidades\npara facilitar a sua gestão de\nmercadorias!",
             style: TextStyle(
-              fontSize: 20,
+              fontSize: 18,
               fontWeight: FontWeight.normal,
               color: ColorsTheme.textGrey,
             ),
             textAlign: TextAlign.center,
           ),
           const Spacer(),
-          
           Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),

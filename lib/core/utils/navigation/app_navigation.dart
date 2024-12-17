@@ -1,3 +1,4 @@
+import 'package:busca_preco/core/pages/custom/colors_controller.dart';
 import 'package:flutter/material.dart';
 
 class AppNavigation extends StatelessWidget {
@@ -37,7 +38,7 @@ class AppNavigation extends StatelessWidget {
           selectedFontSize: 14.0,
           unselectedFontSize: 12.0,
           iconSize: 28.0,
-          selectedItemColor: Colors.blue,
+          selectedItemColor: ColorsTheme.primary,
           unselectedItemColor: Colors.grey,
         ),
       ),

@@ -175,6 +175,13 @@ class AddProductPageScreen extends StatelessWidget {
                   ),
                 ),
               ) : const SizedBox.shrink(),
+              const SizedBox(height: 20),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () => controller.barCode.value += 'a',
+                  child: const Text('Adicionar produto'),
+                ),
+              ),
             ],
           ),
         ),

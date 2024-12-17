@@ -15,6 +15,8 @@ class AnnouncementComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     return Obx(() {
       return Container(
         color: ColorController().backgroundColor.value,
@@ -32,6 +34,7 @@ class AnnouncementComponent extends StatelessWidget {
               repeat: ImageRepeat.noRepeat,
               filterQuality: FilterQuality.high,
               alignment: Alignment.center,
+              width: size.width * 0.4,
             ),
             const SizedBox(height: 64),
             Row(
@@ -58,7 +61,7 @@ class AnnouncementComponent extends StatelessWidget {
                       ? "Organize e\nacompanhe seus\nprodutos com\nfacilidade."
                       : "Desfrute da melhor\nperformance do\nmercado!",
               style: const TextStyle(
-                fontSize: 35,
+                fontSize: 32,
                 fontWeight: FontWeight.bold,
                 color: ColorsTheme.textGrey,
               ),

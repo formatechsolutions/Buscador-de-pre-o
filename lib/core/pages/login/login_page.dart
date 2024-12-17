@@ -1,5 +1,7 @@
+import 'package:busca_preco/core/routes/routes.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import '../custom/appBar/simpleAppBar/simple_app_bar.dart';
 import '../custom/button/custom_button.dart';
 import '../custom/colors_controller.dart';
@@ -18,7 +20,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Column(
         children: [
-          const SimpleAppBar(),
+          SimpleAppBar(customOnpressed: () => Get.toNamed(Routes.index)),
           Expanded(
             child: SingleChildScrollView(
               child: Padding(
