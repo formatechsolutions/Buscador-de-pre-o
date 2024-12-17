@@ -26,4 +26,7 @@ class ColorsTheme {
   static const Color transparentGrey = Color.fromARGB(255, 183, 183, 184);
   static const Color buttonGrey = Color.fromARGB(255, 183, 183, 184);
   static const Color textGrey = Color(0xFF2A2A2A);
+
+  // Red
+  static const Color red = Color(0xFFFF0000);
 }
